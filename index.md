@@ -1,5 +1,8 @@
 ---
+layout: default
+title: Home
 ---
+
 An h1 header
 ============
 
