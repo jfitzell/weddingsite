@@ -1,76 +1,47 @@
-/*****************************************************************************/
-/*
-/* Common
-/*
-/*****************************************************************************/
+/* Resets */
 
-/* Global Reset */
-
-* {
-  margin: 0;
-  padding: 0;
+html, body, p, blockquote, h1, h2, h3, h4, h5, h6, ul, ol, li, pre, form,
+fieldset, input {
+	padding: 0;
+	margin: 0;
 }
 
+a {
+	text-decoration: none;
+}
+
+
+a img {
+	border: 0;
+}
+
+/* Global styling */
+
 html, body {
-  height: 100%;
+	height: 100%;
 }
 
 body {
-  background-color: white;
-  font: 13.34px helvetica, arial, clean, sans-serif;
-  *font-size: small;
-  text-align: center;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-size: 100%;
-}
-
-h1 {
-  margin-bottom: 1em;
+	font-family: 'Open sans', sans-serif;
+	font-size: 15px;
+	color: #666666;
+	min-height: 100%;
+	background-color: #f9f9f9;
 }
 
 p {
   margin: 1em 0;
 }
 
-a {
-  color: #00a;
+a:link, a:visited {
+	color: #5199a8;
 }
 
 a:hover {
-  color: black;
+	color: #8dc7d3;
 }
 
-a:visited {
-  color: #a0a;
-}
 
-table {
-  font-size: inherit;
-  font: 100%;
-}
-
-/*****************************************************************************/
-/*
-/* Home
-/*
-/*****************************************************************************/
-
-ul.posts {
-  list-style-type: none;
-  margin-bottom: 2em;
-}
-
-  ul.posts li {
-    line-height: 1.75em;
-  }
-
-  ul.posts span {
-    color: #aaa;
-    font-family: Monaco, "Courier New", monospace;
-    font-size: 80%;
-  }
 
 /*****************************************************************************/
 /*
@@ -78,120 +49,68 @@ ul.posts {
 /*
 /*****************************************************************************/
 
-.site {
-  font-size: 110%;
-  text-align: justify;
-  width: 40em;
-  margin: 3em auto 2em auto;
-  line-height: 1.5em;
+.wrapper {
+  background-color: white;
 }
 
-.title {
-  color: #a00;
-  font-weight: bold;
-  margin-bottom: 2em;
+
+
+.header {
+	min-height: 60px;
 }
 
-  .site .title a {
-    color: #a00;
-    text-decoration: none;
-  }
 
-  .site .title a:hover {
-    color: black;
-  }
 
-  .site .title a.extra {
-    color: #aaa;
-    text-decoration: none;
-    margin-left: 1em;
-  }
-
-  .site .title a.extra:hover {
-    color: black;
-  }
-
-  .site .meta {
-    color: #aaa;
-  }
-
-  .site .footer {
-    font-size: 80%;
-    color: #666;
-    border-top: 4px solid #eee;
-    margin-top: 2em;
-    overflow: hidden;
-  }
-
-    .site .footer .contact {
-      float: left;
-      margin-right: 3em;
-    }
-
-      .site .footer .contact a {
-        color: #8085C1;
-      }
-
-    .site .footer .rss {
-      margin-top: 1.1em;
-      margin-right: -.2em;
-      float: right;
-    }
-
-      .site .footer .rss img {
-        border: 0;
-      }
-
-/*****************************************************************************/
-/*
-/* Posts
-/*
-/*****************************************************************************/
-
-#post {
-
+.navigation {
+	text-align: center;
+	text-transform: uppercase;
+	color: #8e8e8e;
+	margin: auto;
+	width: 760px;
+	padding-bottom: 40px;
+	overflow: hidden;
+	font-family: 'Raleway', sans-serif;
+	font-size: 13px;
 }
 
-  /* standard */
-
-  #post pre {
-    border: 1px solid #ddd;
-    background-color: #eef;
-    padding: 0 .4em;
-  }
-
-  #post ul,
-  #post ol {
-    margin-left: 1.35em;
-  }
-
-  #post code {
-    border: 1px solid #ddd;
-    background-color: #eef;
-    font-size: 85%;
-    padding: 0 .2em;
-  }
-
-    #post pre code {
-      border: none;
-    }
-
-  /* terminal */
-
-  #post pre.terminal {
-    border: 1px solid black;
-    background-color: #333;
-    color: white;
-  }
-
-  #post pre.terminal code {
-    background-color: #333;
-  }
-
-#related {
-  margin-top: 2em;
+.navigation ul:before, .navigation ul:after {
+    background-color: #d0d0d0;
+    content: "";
+    display: inline-block;
+    height: 1px;
+	bottom: .1em;
+    position: relative;
+    vertical-align: middle;
+    width: 50%;
 }
 
-  #related h2 {
-    margin-bottom: 1em;
-  }
+.navigation ul:before {
+	right: 29px;
+	margin-left: -50%;
+}
+
+.navigation ul:after {
+	left: 29px;
+	margin-right: -50%;
+}
+
+.navigation li {
+	display: inline-block;
+	padding: 10px;
+}
+
+.navigation li:hover,
+.navigation li.active {
+/*	text-decoration: underline;*/
+	background-color: #f6f6f6;
+	color: #484848;
+}
+
+.navigation a:link, .navigation a:visited {
+	color: inherit;
+}
+
+.content-wrapper {
+	width: 760px;
+	margin: auto;
+}
