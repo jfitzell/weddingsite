@@ -1,5 +1,5 @@
 ---
-title: Venues
+title: Location
 layout: default
 ---
 
