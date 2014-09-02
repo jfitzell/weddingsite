@@ -33,7 +33,7 @@
     -o-perspective: 1000;
     perspective: 1000;
     width: 740px;
-    height: 475px;
+    height: 493px;
 }
 
 #centered-container #offset-container #postcard-container:hover #postcard {
@@ -64,7 +64,7 @@
     -o-transition: 1s;
     transition: 1s;
     width: 740px;
-    height: 475px;
+    height: 493px;
 }
 
 #centered-container #offset-container #postcard-container #postcard .face {
@@ -94,7 +94,7 @@
     position: absolute;
     background-repeat: no-repeat;
     width: 740px;
-    height: 475px;
+    height: 493px;
 //    background: url(http://jenandjonnie.com/images/pa.jpg);
 	background: url(../card-front.png);
 }
@@ -102,7 +102,7 @@
 #centered-container #offset-container #postcard-container #postcard #front .img a {
     position: absolute;
     width: 740px;
-    height: 475px;
+    height: 493px;
 }
 
 #centered-container #offset-container #postcard-container #postcard #back {
@@ -117,7 +117,7 @@
     transition: opacity 0.5s;
     background-color: #eee;
     width: 740px;
-    height: 475px;
+    height: 493px;
     opacity: 0;
 }
 
@@ -125,9 +125,10 @@
     position: absolute;
     background-repeat: no-repeat;
     width: 740px;
-    height: 475px;
+    height: 493px;
     opacity: 1;
-    background: url(http://jenandjonnie.com/images/pa-back.jpg);
+//    background: url(http://jenandjonnie.com/images/pa-back.jpg);
+	background: url(../card-back.png);
 }
 
 @media screen and (-webkit-max-device-pixel-ratio: 2) {
@@ -142,12 +143,12 @@
 
 @media screen and (-webkit-min-device-pixel-ratio: 2) {
     #front .img {
-        background-size: 740px 475px;
+        background-size: 740px 493px;
 		background: url(http://jenandjonnie.com/images/pa@2x.jpg);
     }
 
     #back .img {
-        background-size: 740px 475px;
+        background-size: 740px 493px;
 		background: url(http://jenandjonnie.com/images/pa-back@2x.jpg);
     }
 }
