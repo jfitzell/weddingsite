@@ -88,7 +88,7 @@
     width: 740px;
     height: 493px;
 //    background: url(http://jenandjonnie.com/images/pa.jpg);
-	background: url(../card-front.png);
+	background: url(../images/card-front.png);
 }
 
 #offset-container #postcard-container #postcard #front .img a {
@@ -120,7 +120,7 @@
     height: 493px;
     opacity: 1;
 //    background: url(http://jenandjonnie.com/images/pa-back.jpg);
-	background: url(../card-back.png);
+	background: url(../images/card-back.png);
 }
 
 @media screen and (-webkit-max-device-pixel-ratio: 2) {
