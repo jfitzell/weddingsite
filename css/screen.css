@@ -49,6 +49,13 @@ a:hover {
 	background-color: white;
 	width: 760px;
 	margin: auto;
+	
+	/* Setup the fixed footer:
+		http://ryanfait.com/resources/footer-stick-to-bottom-of-page/ */
+	min-height: 100%;
+	height: auto !important; /* For IE 6 */
+	height: 100%; /* For IE 6 */
+	margin: 0 auto -5em;
 }
 
 
@@ -119,5 +126,21 @@ a:hover {
 }
 
 .content p {
-  margin: 1em 0;
+	margin: 1em 0;
+}
+
+
+
+.footer, .footer-push {
+	padding-top: 1em;
+	height: 3em;
+	text-align: center;
+}
+
+.footer hr {
+	width: 100px;
+	background-color: #d0d0d0;
+	height: 1px;
+	border: 0;
+	margin-bottom: 1em;
 }
