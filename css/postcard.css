@@ -25,6 +25,7 @@
     perspective: 1000;
     width: 740px;
     height: 493px;
+    margin: auto;
 }
 
 #offset-container #postcard-container:hover #postcard {

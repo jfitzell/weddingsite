@@ -29,10 +29,6 @@ body {
 	background-color: #ffffff;
 }
 
-p {
-  margin: 1em 0;
-}
-
 a:link, a:visited {
 	color: #5199a8;
 }
@@ -50,13 +46,20 @@ a:hover {
 /*****************************************************************************/
 
 .wrapper {
-  background-color: white;
+	background-color: white;
+	width: 760px;
+	margin: auto;
 }
 
 
 
 .header {
 	min-height: 60px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 20px;
+	font-family: 'Italianno', cursive;
+	font-size: 55px;
 }
 
 
@@ -65,9 +68,7 @@ a:hover {
 	text-align: center;
 	text-transform: uppercase;
 	color: #8e8e8e;
-	margin: auto;
-	width: 760px;
-	padding-bottom: 40px;
+	padding-bottom: 28px;
 	overflow: hidden;
 	font-family: 'Raleway', sans-serif;
 	font-size: 13px;
@@ -110,7 +111,13 @@ a:hover {
 	color: inherit;
 }
 
-.content-wrapper {
-	width: 760px;
-	margin: auto;
+
+
+.content {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.content p {
+  margin: 1em 0;
 }
