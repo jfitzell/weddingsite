@@ -104,6 +104,10 @@ a:hover {
 
 .navigation li {
 	display: inline-block;
+	padding: 10px 0;
+}
+
+.navigation a {
 	padding: 10px;
 }
 
