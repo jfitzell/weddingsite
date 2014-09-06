@@ -123,24 +123,22 @@
 	background: url(../images/card-back.png);
 }
 
-@media screen and (-webkit-max-device-pixel-ratio: 2) {
-    #front .img {
-        background: url(http://jenandjonnie.com/images/pa.jpg);
-    }
 
-   #back .img {
-        background: url(http://jenandjonnie.com/images/pa-back.jpg);
-    }
-}
-
-@media screen and (-webkit-min-device-pixel-ratio: 2) {
-    #front .img {
+/* For Retina displays */
+@media
+		screen and (-webkit-min-device-pixel-ratio: 2),
+		screen and (   min--moz-device-pixel-ratio: 2),
+		screen and (     -o-min-device-pixel-ratio: 2/1),
+		screen and (        min-device-pixel-ratio: 2),
+		screen and (                min-resolution: 192dpi),
+		screen and (                min-resolution: 2dppx) { 
+    #offset-container #postcard-container #postcard #front .img {
         background-size: 740px 493px;
-		background: url(http://jenandjonnie.com/images/pa@2x.jpg);
+		background-image: url(../images/card-front@2x.png);
     }
 
-    #back .img {
+    #offset-container #postcard-container #postcard #back .img {
         background-size: 740px 493px;
-		background: url(http://jenandjonnie.com/images/pa-back@2x.jpg);
+		background-image: url(../images/card-back@2x.png);
     }
 }
