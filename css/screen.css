@@ -148,3 +148,26 @@ a:hover {
 	border: 0;
 	margin-bottom: 1em;
 }
+
+
+
+.welcome-image {
+	background-repeat: no-repeat;
+    width: 740px;
+    height: 401px;
+	background-image: url(../images/welcome.jpg);
+}
+
+/* For Retina displays */
+@media
+		screen and (-webkit-min-device-pixel-ratio: 2),
+		screen and (   min--moz-device-pixel-ratio: 2),
+		screen and (     -o-min-device-pixel-ratio: 2/1),
+		screen and (        min-device-pixel-ratio: 2),
+		screen and (                min-resolution: 192dpi),
+		screen and (                min-resolution: 2dppx) { 
+    .welcome-image {
+        background-size: 740px 401px;
+		background-image: url(../images/welcome@2x.jpg);
+    }
+}
