@@ -22,10 +22,10 @@ js: rsvp
 		<div class="form-group">
 			<label class="control-label">Will you be joining us?</label>
 			<div class="radio">
-				<label><input type="radio" name="entry.507744476" value="Yes" data-parsley-group="block1" required />Yes, can't wait!</label>
+				<label><input type="radio" name="entry.507744476" value="yes" data-parsley-group="block1" required />Yes, can't wait!</label>
 			</div>
 			<div class="radio">
-				<label class="radio"><input type="radio" name="entry.507744476" value="No" data-parsley-group="block1" required />No, sorry, wish I could be there</label>
+				<label class="radio"><input type="radio" name="entry.507744476" value="no" data-parsley-group="block1" required />No, sorry, wish I could be there</label>
 			</div>
 		</div>
 		
@@ -34,8 +34,9 @@ js: rsvp
 	
 	<div class="block2 default-hidden">
 		<div class="form-group form-inline">
-			<label class="control-label" for="entry_524253547">How many total attending?</label>
-			<select class="form-control" name="entry.524253547" id="guest_count" data-parsley-group="block2">
+			<label class="control-label" for="entry_524253547">How many (including yourself) will be attending?</label>
+			<select class="form-control" name="entry.524253547" id="guest_count" required data-parsley-group="block2">
+				<option value="0" selected></option>
 				<option value="1">1</option>
 				<option value="2">2</option>
 			</select>
@@ -70,7 +71,7 @@ js: rsvp
 			</div>
 			<div class="form-group">
 				<label class="control-label" for="">First&nbsp;Name</label>
-				<input class="form-control" type="text" name="" value="" size="10" title=""  data-parsley-group="block2"/>
+				<input class="form-control" type="text" name="" value="" size="10" title="" required data-parsley-group="block2"/>
 			</div>
 			<div class="form-group">
 				<label class="control-label" for="">Last&nbsp;Name</label>
@@ -131,7 +132,7 @@ js: rsvp
 		</div>
 
 		<span class="next btn btn-info pull-left" data-current-block="4" data-next-block="3">&lt; Prev</span>
-		<input class="btn btn-success pull-right" type="submit" name="submit" value="Submit" id="ss-submit" />
+		<input class="btn btn-success pull-right" type="submit" name="submit" value="RSVP!" id="ss-submit" />
 	</div>
 </form>
 <div id="success" class="default-hidden">

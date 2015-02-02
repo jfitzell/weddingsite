@@ -15,6 +15,13 @@ $(document).ready(function () {
 
 	});
 
+	$("input[name='entry.507744476']:radio").change(function () {
+		if ($("input[name='entry.507744476']").filter(':checked').val() == 'yes')
+			$('#guest_count').val(1).change();
+		else
+			$('#guest_count').val(0).change();
+	});
+
 	$('#guest_count').change(function () {
 		var count = $(this).val();
 		var guests = $('.guest');
