@@ -1,0 +1,143 @@
+---
+layout: default
+title: RSVP
+parsely: true
+css: rsvp
+js: rsvp
+---
+<form action="https://docs.google.com/forms/d/1w-INu_xopywyd8EWIuFBCoR3Oh9H8sfaDZew6wlIIpU/formResponse" method="post" id="rsvp-form" target="_self" name="ss-form">
+	<div class="block1">
+		<div class="form-group">
+			<label class="control-label" for="">First&nbsp;Name</label>
+			<input class="form-control" type="text" name="" value="" size="10" title="" required data-parsley-group="block1"/>
+		</div>
+		<div class="form-group">
+			<label class="control-label" for="">Last&nbsp;Name</label>
+			<input class="form-control" type="text" name="" value="" title="" size="10" required  data-parsley-group="block1"/>
+		</div>
+		<div class="form-group">
+			<label class="control-label" for="">What's the best email address to reach you?</label>
+			<input class="form-control" type="email" placeholder="Email" name="" value="" title="" size="10" required  data-parsley-group="block1"/>
+		</div>	
+		<div class="form-group">
+			<label class="control-label">Will you be joining us?</label>
+			<div class="radio">
+				<label><input type="radio" name="entry.507744476" value="Yes" data-parsley-group="block1" required />Yes, can't wait!</label>
+			</div>
+			<div class="radio">
+				<label class="radio"><input type="radio" name="entry.507744476" value="No" data-parsley-group="block1" required />No, sorry, wish I could be there</label>
+			</div>
+		</div>
+		
+		<span class="next btn btn-info pull-left" data-current-block="1" data-next-block="2">Next &gt;</span>
+	</div>
+	
+	<div class="block2 default-hidden">
+		<div class="form-group form-inline">
+			<label class="control-label" for="entry_524253547">How many total attending?</label>
+			<select class="form-control" name="entry.524253547" id="guest_count" data-parsley-group="block2">
+				<option value="1">1</option>
+				<option value="2">2</option>
+			</select>
+		</div>
+	
+		<div class="guest form-inline">
+			<div class="form-group">
+				<label class="control-label" for="entry_235350510">Title</label>
+				<input class="form-control" type="text" name="entry.235350510" value="" title="" size="4" data-parsley-group="block2"/>
+			</div>
+			<div class="form-group">
+				<label class="control-label" for="entry_723527832">First&nbsp;Name</label>
+				<input class="form-control" type="text" name="entry.723527832" value="" size="10" title="" data-parsley-group="block2" required />
+			</div>
+			<div class="form-group">
+				<label class="control-label" for="entry_1478306097">Last&nbsp;Name</label>
+				<input class="form-control" type="text" name="entry.1478306097" value="" title="" size="10" data-parsley-group="block2" required />
+			</div>
+			<div class="form-group">
+				<label class="control-label" for="entry_1732711891">Meal&nbsp;Choice</label>
+				<select class="form-control" name="entry.1732711891" data-parsley-group="block2">
+					<option value="Meat">Meat</option>
+					<option value="Veg">Veg</option>
+					<option value="Child">Child</option>
+				</select>
+			</div>
+		</div>
+		<div class="guest form-inline">
+			<div class="form-group">
+				<label class="control-label" for="">Title</label>
+				<input class="form-control" type="text" name="" value="" title="" size="4" data-parsley-group="block2"/>
+			</div>
+			<div class="form-group">
+				<label class="control-label" for="">First&nbsp;Name</label>
+				<input class="form-control" type="text" name="" value="" size="10" title=""  data-parsley-group="block2"/>
+			</div>
+			<div class="form-group">
+				<label class="control-label" for="">Last&nbsp;Name</label>
+				<input class="form-control" type="text" name="" value="" title="" size="10" required  data-parsley-group="block2"/>
+			</div>
+			<div class="form-group">
+				<label class="control-label" for="">Meal&nbsp;Choice</label>
+				<select class="form-control" name="" data-parsley-group="block2">
+					<option value="Meat">Meat</option>
+					<option value="Veg">Veg</option>
+					<option value="Child">Child</option>
+				</select>
+			</div>
+		</div>
+		
+		<span class="next btn btn-info pull-left" data-current-block="2" data-next-block="1">&lt; Prev</span>
+		<span class="next btn btn-info pull-left" data-current-block="2" data-next-block="3">Next &gt;</span>
+	</div>
+
+	<div class="block3 default-hidden">
+		<div class="form-group">
+			<label class="control-label" for="">Will you want transport to the ceremony?</label>
+			<select class="form-control" name="" data-parsley-group="block3" required>
+				<option value="" selected disabled></option>
+				<option value="parr">Yes, from Parr Hall</option>
+				<option value="mercure">Yes, from the Mercure Bolton Georgian House</option>
+				<option value="premier">Yes, from the Premier Inn Bolton West</option>
+				<option value="none">No thanks, we're arranging our own transportation</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label class="control-label" for="">Will you want transport from the ceremony to the reception?</label>
+			<select class="form-control" name="" data-parsley-group="block3" required>
+				<option value="" selected disabled></option>
+				<option value="yes">Yes please</option>
+				<option value="no">No thanks, we'll make our own way</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label class="control-label" for="">Will you want transport after the reception?</label>
+			<select class="form-control" name="" data-parsley-group="block3" required>
+				<option value="" selected disabled></option>
+				<option value="parr">Yes, to Parr Hall</option>
+				<option value="mercure">Yes, to the Mercure Bolton Georgian House</option>
+				<option value="premier">Yes, to the Premier Inn Bolton West</option>
+				<option value="none">No thanks, we're arranging our own transportation</option>
+			</select>
+		</div>
+		
+		<span class="next btn btn-info pull-left" data-current-block="3" data-next-block="2">&lt; Prev</span>
+		<span class="next btn btn-info pull-left" data-current-block="3" data-next-block="4">Next &gt;</span>
+	</div>
+
+	<div class="block4 default-hidden">
+		<div class="form-group">
+			<label class="control-label" for="entry_883892337">Is there anything else we should know?</label>
+			<textarea class="form-control" name="entry.883892337" rows="8" cols="0" data-parsley-group="block4"></textarea>
+		</div>
+
+		<span class="next btn btn-info pull-left" data-current-block="4" data-next-block="3">&lt; Prev</span>
+		<input class="btn btn-success pull-right" type="submit" name="submit" value="Submit" id="ss-submit" />
+	</div>
+</form>
+<div id="success" class="default-hidden">
+	<p>Thanks for confirming your details. We're getting excited and we can't wait to see you!</p>
+	<p>If we can do anything to help, just <a href="mailto:wedding@fitzell.ca">let us know</a>.</p>
+</div>
+<div id="regrets" class="default-hidden">
+	<p>Thanks for letting us know. We'll be sorry not to have you with us!</p>
+</div>

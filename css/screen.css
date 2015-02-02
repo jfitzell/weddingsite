@@ -70,6 +70,10 @@ a:hover {
 }
 
 
+.default-hidden {
+	display: none;
+}
+
 
 .navigation {
 	text-align: center;
