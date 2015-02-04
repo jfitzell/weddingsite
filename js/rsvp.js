@@ -1,52 +1,70 @@
 $(document).ready(function () {
+	initializeParsley();
+
 	$('.next').on('click', function () {
+		var parsley = $('#rsvp-form').parsley();
 		var current = $(this).data('currentBlock'),
 			next = $(this).data('nextBlock');
 
 		// only validate going forward. If current group is invalid, do not go further
 		// .parsley().validate() returns validation result AND show errors
 		if (next > current)
-			if (false === $('#rsvp-form').parsley().validate('block' + current))
+			if (false === parsley.validate('block' + current))
 				return;
 
 		// validation was ok. We can go on next step.
 		$('.block' + current).hide();
+		parsley.reset();
 		$('.block' + next).show();
 
 	});
 
-	$("input[name='entry.507744476']:radio").change(function () {
-		if ($("input[name='entry.507744476']").filter(':checked').val() == 'yes')
-			$('#guest_count').val(1).change();
-		else
-			$('#guest_count').val(0).change();
-	});
+	$("input[name='entry.507744476']:radio").change(updateGuestCountFromAttendanceBoolean);
 
-	$('#guest_count').change(function () {
-		var count = $(this).val();
-		var guests = $('.guest');
-		guests.each(function (i, guest) {
-			if (i < count)
-				$(guest).show();
-			else
-				$(guest).hide();
-		});
-	}).change();
+	$('#guest_count').change(adjustNumberOfGuestEntries).change();
 
-	$('#rsvp-form').parsley({
-		excluded: "input[type=button], input[type=submit], input[type=reset], input[type=hidden], :hidden",
-		successClass: "has-success",
-	    errorClass: "has-error",
-		classHandler: function (el) {
-			return el.$element.closest(".form-group");
-		},
-		errorsContainer: function (el) {
-			return el.$element.closest(".form-group");
-		},
-	});
+	$('#user_first_dynamic, #user_last_dynamic').change(updateFirstGuestWithVisitorNames);
 
 	$('#ss-submit').click(validateForm);
 });
+
+
+function initializeParsley() {
+	$('#rsvp-form').parsley({
+		excluded: "input[type=button], input[type=submit], input[type=reset], input[type=hidden], :hidden",
+// 		successClass: "has-success",
+// 	    errorClass: "has-error",
+// 		classHandler: function (el) {
+// 			return el.$element.closest(".form-group");
+// 		},
+// 		errorsContainer: function (el) {
+// 			return el.$element.closest(".form-group");
+// 		},
+	});
+}
+
+function adjustNumberOfGuestEntries() {
+	var count = $('#guest_count').val();
+	var guests = $('.guest');
+	guests.each(function (i, guest) {
+		if (i < count)
+			$(guest).show();
+		else
+			$(guest).hide();
+	});
+}
+
+function updateFirstGuestWithVisitorNames() {
+	$('#user_first_static').text($('#user_first_dynamic').val());
+	$('#user_last_static').text($('#user_last_dynamic').val());
+}
+
+function updateGuestCountFromAttendanceBoolean() {
+	if ($('.field-attending input:radio').filter(':checked').val() == 'yes')
+		$('#guest_count').val(1).change();
+	else
+		$('#guest_count').val(0).change();
+}
 
 function validateForm(event) {
 	if (event) event.preventDefault();

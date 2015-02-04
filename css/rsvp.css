@@ -1,0 +1,26 @@
+.block .block-navigation {
+	clear: left;
+}
+
+.guest {
+	clear: left;
+}
+
+.guest .form-group {
+	float: left;
+	padding-left: 3px;
+	padding-right: 3px;
+}
+
+.guest .guest-first, .guest .guest-last {
+	width: 40%;
+}
+
+.guest .guest-title {
+//	width: 10%;
+	display: none;
+}
+
+.guest .guest-meal {
+	width: 20%;
+}
