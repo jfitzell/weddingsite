@@ -16,7 +16,7 @@ $(document).ready(function () {
 		$('.block' + current).hide();
 		parsley.reset();
 		$('.block' + next).show();
-
+		$('.block' + next).find(':input').first().focus();
 	});
 
 	$("input[name='entry.507744476']:radio").change(updateGuestCountFromAttendanceBoolean);
@@ -26,6 +26,8 @@ $(document).ready(function () {
 	$('#user_first_dynamic, #user_last_dynamic').change(updateFirstGuestWithVisitorNames);
 
 	$('#ss-submit').click(validateForm);
+
+	$('#rsvp-form :input').first().focus();
 });
 
 
@@ -44,7 +46,8 @@ function initializeParsley() {
 }
 
 function adjustNumberOfGuestEntries() {
-	var count = $('#guest_count').val();
+	var guests_select = $('#guest_count')
+	var count = guests_select.val();
 	var guests = $('.guest');
 	guests.each(function (i, guest) {
 		if (i < count)
@@ -52,6 +55,11 @@ function adjustNumberOfGuestEntries() {
 		else
 			$(guest).hide();
 	});
+
+	if (guests_select.is(':focus')) {
+		var inputs = guests_select.closest('.block').find(':input');
+		inputs.eq( inputs.index(guests_select) + 1 ).focus();
+	}
 }
 
 function updateFirstGuestWithVisitorNames() {
