@@ -104,7 +104,7 @@ fields:
 			</div>
 			<div class="form-group guest-meal">
 				<label class="control-label" for="">Meal&nbsp;Choice</label>
-				<select class="form-control" name="{{ guest.meal }}" data-parsley-group="block2">
+				<select class="form-control" name="{{ guest.meal }}" required data-parsley-group="block2">
 					<option value="Meat">Meat</option>
 					<option value="Veg">Veg</option>
 					<option value="Child">Child</option>
@@ -121,7 +121,7 @@ fields:
 
 	<div class="block block3 default-hidden">
 		<div class="form-group">
-			<label class="control-label" for="">Will you want transport to the ceremony?</label>
+			<label class="control-label" for="">Would you like coach transport to the ceremony?</label>
 			<select class="form-control" name="{{ page.fields.shuttle.ceremony }}" data-parsley-group="block3" required>
 				<option value="" selected disabled></option>
 				<option value="parr">Yes, from Parr Hall</option>
@@ -131,7 +131,7 @@ fields:
 			</select>
 		</div>
 		<div class="form-group">
-			<label class="control-label" for="">Will you want transport from the ceremony to the reception?</label>
+			<label class="control-label" for="">Would you like coach transport between the ceremony and the reception?</label>
 			<select class="form-control" name="{{ page.fields.shuttle.reception }}" data-parsley-group="block3" required>
 				<option value="" selected disabled></option>
 				<option value="yes">Yes please</option>
@@ -139,7 +139,8 @@ fields:
 			</select>
 		</div>
 		<div class="form-group">
-			<label class="control-label" for="">Will you want transport after the reception?</label>
+			<label class="control-label" for="">Would you like coach transport after the reception?</label>
+			<p class="help-block">Coaches will depart for the following hotels between xx:xx and yy:yy</p>
 			<select class="form-control" name="{{ page.fields.shuttle.home }}" data-parsley-group="block3" required>
 				<option value="" selected disabled></option>
 				<option value="parr">Yes, to Parr Hall</option>

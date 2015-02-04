@@ -34,14 +34,16 @@ $(document).ready(function () {
 function initializeParsley() {
 	$('#rsvp-form').parsley({
 		excluded: "input[type=button], input[type=submit], input[type=reset], input[type=hidden], :hidden",
-// 		successClass: "has-success",
-// 	    errorClass: "has-error",
-// 		classHandler: function (el) {
-// 			return el.$element.closest(".form-group");
-// 		},
-// 		errorsContainer: function (el) {
-// 			return el.$element.closest(".form-group");
-// 		},
+		successClass: "has-success",
+	    errorClass: "has-error",
+		classHandler: function (el) {
+			return el.$element.closest(".form-group");
+		},
+		errorsContainer: function (el) {
+			return el.$element.closest(".form-group");
+		},
+		errorsWrapper: '<p class="help-block"></p>',
+		errorTemplate: '<span></span>',
 	});
 }
 

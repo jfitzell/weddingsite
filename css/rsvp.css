@@ -1,7 +1,30 @@
+/* Overrides for screen.css */
+.content form p {
+	margin: 0;
+}
+
+
+/* Form structure */
 .block .block-navigation {
 	clear: left;
 }
 
+
+/* Form validation - Bootstrap overrides */
+.has-error .control-label, .has-success .control-label, .has-success .radio {
+    color: inherit;
+}
+
+.has-error input, .has-error select, .has-error textarea {
+    background-color: #F2DEDE;
+}
+
+.has-success input, .has-success select, .has-success textarea {
+	background-color: #DFF0D8;
+}
+
+
+/* Form content */
 .guest {
 	clear: left;
 }
@@ -17,10 +40,12 @@
 }
 
 .guest .guest-title {
-//	width: 10%;
+/* 	width: 10%; */
 	display: none;
 }
 
 .guest .guest-meal {
 	width: 20%;
 }
+
+
