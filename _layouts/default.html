@@ -6,7 +6,7 @@
   <title>{{ page.title }}</title>
 <!--  <meta name="author" content="{{ site.author.name }}" />  -->
 
-  <link rel="stylesheet" href="{{ site.baseurl }}/css/bootstrap.min.css">
+<!--  <link rel="stylesheet" href="{{ site.baseurl }}/css/bootstrap.min.css"> -->
   <link href='http://fonts.googleapis.com/css?family=Italianno' rel='stylesheet' type='text/css'>
   
   {% if page.parsely %}
@@ -14,6 +14,8 @@
 	<script src="{{ site.baseurl }}/js/parsley-2.0.7.min.js"></script>
 	<link rel="stylesheet" href="{{ site.baseurl }}/css/parsley.css" type="text/css" />
   {% endif %}
+
+  <link rel="stylesheet" href="{{ site.baseurl }}/css/screen.css" type="text/css" media="screen, projection" />
   
   {% if page.css %}
     <link rel="stylesheet" href="{{ site.baseurl }}/css/{{ page.css }}.css" type="text/css" />
@@ -23,7 +25,6 @@
     <script src="{{ site.baseurl }}/js/{{ page.js }}.js"></script>
   {% endif %}
   
-  <link rel="stylesheet" href="{{ site.baseurl }}/css/screen.css" type="text/css" media="screen, projection" />
   <link rel="stylesheet" href="{{ site.baseurl }}/css/postcard.css" type="text/css" />
   
   <script>

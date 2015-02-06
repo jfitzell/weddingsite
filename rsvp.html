@@ -40,15 +40,15 @@ fields:
 ---
 <form action="https://docs.google.com/forms/d/1w-INu_xopywyd8EWIuFBCoR3Oh9H8sfaDZew6wlIIpU/formResponse" method="post" id="rsvp-form" target="_self" name="ss-form">
 	<div class="block block1">
-		<div class="form-group">
+		<div class="form-group field-firstname">
 			<label class="control-label" for="">First&nbsp;Name</label>
 			<input class="form-control" type="text" id="user_first_dynamic" name="{{ page.fields.guests[0].first }}" placeholder="First Name" size="10" title="" required data-parsley-group="block1"/>
 		</div>
-		<div class="form-group">
+		<div class="form-group field-lastname">
 			<label class="control-label" for="">Last&nbsp;Name</label>
 			<input class="form-control" id="user_last_dynamic" type="text" name="{{ page.fields.guests[0].last }}" placeholder="Last Name" title="" size="10" required  data-parsley-group="block1"/>
 		</div>
-		<div class="form-group">
+		<div class="form-group field-email">
 			<label class="control-label" for="">What's the best email address to reach you?</label>
 			<input class="form-control" type="email" name="{{ page.fields.email }}" placeholder="user@example.com" title="" size="10" required  data-parsley-group="block1"/>
 		</div>	

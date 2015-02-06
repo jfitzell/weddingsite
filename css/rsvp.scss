@@ -1,0 +1,84 @@
+---
+---
+
+// Core variables and mixins
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
+
+// Reset and dependencies
+@import "bootstrap/normalize";
+//@import "bootstrap/print";
+//@import "bootstrap/glyphicons";
+
+// Core CSS
+@import "bootstrap/scaffolding";
+//@import "bootstrap/type";
+//@import "bootstrap/code";
+@import "bootstrap/grid";
+//@import "bootstrap/tables";
+@import "bootstrap/forms";
+@import "bootstrap/buttons";
+
+
+/* Form validation - Bootstrap overrides */
+.has-error .control-label, .has-success .control-label, .has-success .radio {
+    color: inherit;
+}
+
+.has-error input, .has-error select, .has-error textarea {
+    background-color: #F2DEDE;
+}
+
+.has-success input, .has-success select, .has-success textarea {
+	background-color: #DFF0D8;
+}
+
+
+.wrapper {
+    width: inherit;
+    max-width: 760px;
+}
+
+#rsvp-form {
+    /* Overrides for screen.css */
+    p {
+        margin: 0;
+    }
+
+
+    /* Form structure */
+    .block .block-navigation {
+        clear: left;
+    }    
+    
+    
+    /* Form content */
+    .guest {
+//        clear: left;
+        @include make-row();
+    
+//         .form-group {
+//             float: left;
+//             padding-left: 3px;
+//             padding-right: 3px;
+//         }
+        
+        .guest-first, .guest-last {
+//             width: 40%;
+            @include make-xs-column(12);
+            @include make-sm-column(6);
+            @include make-md-column(5);
+        }
+        
+        .guest-title {
+        /* 	width: 10%; */
+            display: none;
+        }
+        
+        .guest-meal {
+//             width: 20%;
+            @include make-xs-column(12);
+            @include make-md-column(2);
+        }
+    }
+}
