@@ -133,11 +133,13 @@ a:hover {
 	padding-right: 10px;
 }
 
-/* 
-.content p {
-	margin: 1em 0;
+.content p + p, .content h1 + p {
+	margin-top: 1em;
 }
- */
+
+.content p + h1 {
+	margin-top: 0.8em;
+}
 
 
 

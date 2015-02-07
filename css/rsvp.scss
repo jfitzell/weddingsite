@@ -49,26 +49,25 @@
  */
 }
 
-/* 
- TODO: this should really be when *after* a label and before a control
-   but I can't remember the selectors
- */
-.help-block {
-	margin-top: -3px;
-	margin-bottom: 5px;
-	font-size: 90%;
-}
-
 #rsvp-form {
+	/* Formatting overrides */
     textarea {
     	resize: vertical;
     }
 
+	.help-block {
+		margin-top: -3px;
+		margin-bottom: 5px;
+		font-size: 90%;
+		font-style: italic;
+	}
+
+
+    /* Form structure */
     .field {
 	    @extend .form-group;
     }
 
-    /* Form structure */
     .block {
 	    .block-navigation {
     	    button {
