@@ -49,16 +49,24 @@
  */
 }
 
+/* 
+ TODO: this should really be when *after* a label and before a control
+   but I can't remember the selectors
+ */
+.help-block {
+	margin-top: -3px;
+	margin-bottom: 5px;
+	font-size: 90%;
+}
+
 #rsvp-form {
-    /* Overrides for screen.css */
-    p {
-        margin: 0;
-    }
-    
     textarea {
     	resize: vertical;
     }
 
+    .field {
+	    @extend .form-group;
+    }
 
     /* Form structure */
     .block {
@@ -81,10 +89,6 @@
     	    }
 	    }
 	}
-    
-    .field {
-	    @extend .form-group;
-    }
     
     .block1 .block-fields {
     	@include make-row();

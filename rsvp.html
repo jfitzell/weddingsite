@@ -79,6 +79,7 @@ fields:
 					<option value="{{ i }}">{{ i }}</option>
 					{% endfor %}
 				</select>
+				<span class="help-block">Please include only those who will be dining at the reception</span>
 			</div>
 	
 			<div class="guest-details">
@@ -150,7 +151,7 @@ fields:
 			</div>
 			<div class="field field-transport-home">
 				<label class="control-label" for="">Would you like coach transport after the reception?</label>
-				<p class="help-block">Coaches will depart for the following hotels between xx:xx and yy:yy</p>
+				<span class="help-block">Coaches will depart between midnight and 12:15</span>
 				<select class="form-control" name="{{ page.fields.shuttle.home }}" data-parsley-group="block3" required>
 					<option value="" selected disabled></option>
 					<option value="parr">Yes, to Parr Hall</option>
@@ -169,7 +170,8 @@ fields:
 
 	<div class="block block4 default-hidden">
 		<div class="field">
-			<label class="control-label" for="entry_883892337">Is there anything else we should know?</label>
+			<label class="control-label" for="entry_883892337">Other Comments</label>
+			<span class="help-block">Have a food allergy? Need a highchair? Is there anything else we should know?</span>
 			<textarea class="form-control" name="{{ page.fields.comments }}" rows="8" cols="0" data-parsley-group="block4"></textarea>
 		</div>
 
