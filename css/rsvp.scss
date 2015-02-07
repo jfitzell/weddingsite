@@ -23,16 +23,22 @@
 @import "bootstrap/utilities";
 
 /* Form validation - Bootstrap overrides */
-.has-error .control-label, .has-success .control-label, .has-success .radio {
-    color: inherit;
+.has-error, .has-success {
+	.control-label, .radio, .help-block {
+	    color: inherit;
+	}
 }
 
-.has-error input, .has-error select, .has-error textarea {
-    background-color: #F2DEDE;
+.has-error{
+	input, select, textarea {
+	    background-color: #F2DEDE;
+	}
 }
 
-.has-success input, .has-success select, .has-success textarea {
-	background-color: #DFF0D8;
+.has-success {
+	input, select, textarea {
+		background-color: #DFF0D8;
+	}
 }
 
 
