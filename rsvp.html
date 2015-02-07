@@ -40,25 +40,27 @@ fields:
 ---
 <form action="https://docs.google.com/forms/d/1w-INu_xopywyd8EWIuFBCoR3Oh9H8sfaDZew6wlIIpU/formResponse" method="post" id="rsvp-form" target="_self" name="ss-form">
 	<div class="block block1">
-		<div class="field field-firstname">
-			<label class="control-label" for="">First&nbsp;Name</label>
-			<input class="form-control" type="text" id="user_first_dynamic" name="{{ page.fields.guests[0].first }}" placeholder="First Name" size="10" title="" required data-parsley-group="block1"/>
-		</div>
-		<div class="field field-lastname">
-			<label class="control-label" for="">Last&nbsp;Name</label>
-			<input class="form-control" id="user_last_dynamic" type="text" name="{{ page.fields.guests[0].last }}" placeholder="Last Name" title="" size="10" required  data-parsley-group="block1"/>
-		</div>
-		<div class="field field-email">
-			<label class="control-label" for="">What's the best email address to reach you?</label>
-			<input class="form-control" type="email" name="{{ page.fields.email }}" placeholder="user@example.com" title="" size="10" required  data-parsley-group="block1"/>
-		</div>	
-		<div class="field field-attending">
-			<label class="control-label">Will you be joining us?</label>
-			<div class="radio">
-				<label><input type="radio" name="{{ page.fields.attending }}" value="yes" data-parsley-group="block1" required />Yes, can't wait!</label>
+		<div class="block-fields">
+			<div class="field field-firstname">
+				<label class="control-label" for="">First&nbsp;Name</label>
+				<input class="form-control" type="text" id="user_first_dynamic" name="{{ page.fields.guests[0].first }}" placeholder="First Name" size="10" title="" required data-parsley-group="block1"/>
 			</div>
-			<div class="radio">
-				<label class="radio"><input type="radio" name="{{ page.fields.attending }}" value="no" data-parsley-group="block1" required />No, sorry, wish I could be there</label>
+			<div class="field field-lastname">
+				<label class="control-label" for="">Last&nbsp;Name</label>
+				<input class="form-control" id="user_last_dynamic" type="text" name="{{ page.fields.guests[0].last }}" placeholder="Last Name" title="" size="10" required  data-parsley-group="block1"/>
+			</div>
+			<div class="field field-email">
+				<label class="control-label" for="">What's the best email address to reach you?</label>
+				<input class="form-control" type="email" name="{{ page.fields.email }}" placeholder="user@example.com" title="" size="10" required  data-parsley-group="block1"/>
+			</div>	
+			<div class="field field-attending">
+				<label class="control-label">Will you be joining us?</label>
+				<div class="radio">
+					<label><input type="radio" name="{{ page.fields.attending }}" value="yes" data-parsley-group="block1" required />Yes, can't wait!</label>
+				</div>
+				<div class="radio">
+					<label class="radio"><input type="radio" name="{{ page.fields.attending }}" value="no" data-parsley-group="block1" required />No, sorry, wish I could be there</label>
+				</div>
 			</div>
 		</div>
 		
@@ -68,56 +70,58 @@ fields:
 	</div>
 	
 	<div class="block block2 default-hidden">
-		<div class="field field-guestcount">
-			<label class="control-label" for="guest_count">How many (including yourself) will be attending?</label>
-			<select class="form-control" name="entry.524253547" id="guest_count" required data-parsley-group="block2">
-				<option value="0" selected disabled></option>
-				{% for i in (1..page.fields.guests.size) %}
-				<option value="{{ i }}">{{ i }}</option>
-				{% endfor %}
-			</select>
-		</div>
-	
-		<div class="guest-details">
-			{% for guest in page.fields.guests %}
-			<div class="guest guest{{ forloop.index }}">
-				<label class="guest-label">{% if forloop.first %}Yourself{% else %}Guest {{ forloop.index0 }}{% endif %}</label>
-	<!-- 
-				<div class="field guest-title">
-					<label class="control-label" for="">Title</label>
-					<input class="form-control" type="text" name="{{ guest.title }}" placeholder="Mr/Mrs" title="Title" size="4" data-parsley-group="block2"/>
-				</div>
-	 -->
-				<div class="guest-fields">
-					<div class="field field-guest-first">
-						<label class="control-label" for="">First&nbsp;Name</label>
-						{% if forloop.first %}
-						<div class="form-control-static" id="user_first_static"></div>
-						{% else %}
-						<input class="form-control" type="text" name="{{ guest.first }}" placeholder="First Name" title="First Name" size="10" data-parsley-group="block2" required />
-						{% endif %}
-					</div>
-					<div class="field field-guest-last">
-						<label class="control-label" for="">Last&nbsp;Name</label>
-						{% if forloop.first %}
-						<div class="form-control-static" id="user_last_static"></div>
-						{% else %}
-						<input class="form-control" type="text" name="{{ guest.last }}" placeholder="Last Name" title="Last Name" size="10" data-parsley-group="block2" required />
-						{% endif %}
-					</div>
-					<div class="field field-guest-meal">
-						<label class="control-label" for="">Meal&nbsp;Choice</label>
-						<select class="form-control" name="{{ guest.meal }}" required data-parsley-group="block2">
-							<option value="Meat">Meat</option>
-							<option value="Veg">Veg</option>
-							<option value="Child">Child</option>
-						</select>
-					</div>
-				</div>
+		<div class="block-fields">
+			<div class="field field-guestcount">
+				<label class="control-label" for="guest_count">How many (including yourself) will be attending?</label>
+				<select class="form-control" name="entry.524253547" id="guest_count" required data-parsley-group="block2">
+					<option value="0" selected disabled></option>
+					{% for i in (1..page.fields.guests.size) %}
+					<option value="{{ i }}">{{ i }}</option>
+					{% endfor %}
+				</select>
 			</div>
-			{% endfor %}
+	
+			<div class="guest-details">
+				{% for guest in page.fields.guests %}
+				<div class="guest guest{{ forloop.index }}">
+					<label class="guest-label">{% if forloop.first %}Yourself{% else %}Guest {{ forloop.index0 }}{% endif %}</label>
+		<!-- 
+					<div class="field guest-title">
+						<label class="control-label" for="">Title</label>
+						<input class="form-control" type="text" name="{{ guest.title }}" placeholder="Mr/Mrs" title="Title" size="4" data-parsley-group="block2"/>
+					</div>
+		 -->
+					<div class="guest-fields">
+						<div class="field field-guest-first">
+							<label class="control-label" for="">First&nbsp;Name</label>
+							{% if forloop.first %}
+							<div class="form-control-static" id="user_first_static"></div>
+							{% else %}
+							<input class="form-control" type="text" name="{{ guest.first }}" placeholder="First Name" title="First Name" size="10" data-parsley-group="block2" required />
+							{% endif %}
+						</div>
+						<div class="field field-guest-last">
+							<label class="control-label" for="">Last&nbsp;Name</label>
+							{% if forloop.first %}
+							<div class="form-control-static" id="user_last_static"></div>
+							{% else %}
+							<input class="form-control" type="text" name="{{ guest.last }}" placeholder="Last Name" title="Last Name" size="10" data-parsley-group="block2" required />
+							{% endif %}
+						</div>
+						<div class="field field-guest-meal">
+							<label class="control-label" for="">Meal&nbsp;Choice</label>
+							<select class="form-control" name="{{ guest.meal }}" required data-parsley-group="block2">
+								<option value="Meat">Meat</option>
+								<option value="Veg">Veg</option>
+								<option value="Child">Child</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
 		</div>
-		
+				
 		<div class="block-navigation">
 			<button type="button" class="next button-prev" data-current-block="2" data-next-block="1">&lt; Prev</button>
 			<button type="button" class="next button-next" data-current-block="2" data-next-block="3">Next &gt;</button>
@@ -125,34 +129,36 @@ fields:
 	</div>
 
 	<div class="block block3 default-hidden">
-		<div class="field">
-			<label class="control-label" for="">Would you like coach transport to the ceremony?</label>
-			<select class="form-control" name="{{ page.fields.shuttle.ceremony }}" data-parsley-group="block3" required>
-				<option value="" selected disabled></option>
-				<option value="parr">Yes, from Parr Hall</option>
-				<option value="mercure">Yes, from the Mercure Bolton Georgian House</option>
-				<option value="premier">Yes, from the Premier Inn Bolton West</option>
-				<option value="none">No thanks, we're arranging our own transportation</option>
-			</select>
-		</div>
-		<div class="field">
-			<label class="control-label" for="">Would you like coach transport between the ceremony and the reception?</label>
-			<select class="form-control" name="{{ page.fields.shuttle.reception }}" data-parsley-group="block3" required>
-				<option value="" selected disabled></option>
-				<option value="yes">Yes please</option>
-				<option value="no">No thanks, we'll make our own way</option>
-			</select>
-		</div>
-		<div class="field">
-			<label class="control-label" for="">Would you like coach transport after the reception?</label>
-			<p class="help-block">Coaches will depart for the following hotels between xx:xx and yy:yy</p>
-			<select class="form-control" name="{{ page.fields.shuttle.home }}" data-parsley-group="block3" required>
-				<option value="" selected disabled></option>
-				<option value="parr">Yes, to Parr Hall</option>
-				<option value="mercure">Yes, to the Mercure Bolton Georgian House</option>
-				<option value="premier">Yes, to the Premier Inn Bolton West</option>
-				<option value="none">No thanks, we're arranging our own transportation</option>
-			</select>
+		<div class="block-fields">
+			<div class="field field-transport-ceremony">
+				<label class="control-label" for="">Would you like coach transport to the ceremony?</label>
+				<select class="form-control" name="{{ page.fields.shuttle.ceremony }}" data-parsley-group="block3" required>
+					<option value="" selected disabled></option>
+					<option value="parr">Yes, from Parr Hall</option>
+					<option value="mercure">Yes, from the Mercure Bolton Georgian House</option>
+					<option value="premier">Yes, from the Premier Inn Bolton West</option>
+					<option value="none">No thanks, we're arranging our own transportation</option>
+				</select>
+			</div>
+			<div class="field field-transport-reception">
+				<label class="control-label" for="">Would you like coach transport between the ceremony and the reception?</label>
+				<select class="form-control" name="{{ page.fields.shuttle.reception }}" data-parsley-group="block3" required>
+					<option value="" selected disabled></option>
+					<option value="yes">Yes please</option>
+					<option value="no">No thanks, we'll make our own way</option>
+				</select>
+			</div>
+			<div class="field field-transport-home">
+				<label class="control-label" for="">Would you like coach transport after the reception?</label>
+				<p class="help-block">Coaches will depart for the following hotels between xx:xx and yy:yy</p>
+				<select class="form-control" name="{{ page.fields.shuttle.home }}" data-parsley-group="block3" required>
+					<option value="" selected disabled></option>
+					<option value="parr">Yes, to Parr Hall</option>
+					<option value="mercure">Yes, to the Mercure Bolton Georgian House</option>
+					<option value="premier">Yes, to the Premier Inn Bolton West</option>
+					<option value="none">No thanks, we're arranging our own transportation</option>
+				</select>
+			</div>
 		</div>
 		
 		<div class="block-navigation">
