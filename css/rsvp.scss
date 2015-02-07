@@ -42,11 +42,6 @@
 	@media (min-width: $screen-sm-min) {
 		width: $container-sm;
 	}
-/* 
-	@media (min-width: $screen-md-min) {
-		width: $container-md;
-	}
- */
 }
 
 #rsvp-form {
@@ -93,7 +88,6 @@
     	@include make-row();
     	
     	.field-firstname, .field-lastname {
-    		@include make-xs-column(12);
             @include make-sm-column(6);
     	}
     	
@@ -111,8 +105,8 @@
     
     /* Form content */
     .guest {
-        @extend .panel, .panel-primary;
-        clear: both;
+        @extend .panel;
+        @include panel-variant(#ccc, #333333, #dadada, #ccc);
         
         .guest-label {
         	@extend .panel-heading;
@@ -123,21 +117,24 @@
         
         .guest-fields {
         	@extend .panel-body;
+        	padding-top: 5px;
+        	padding-bottom: 5px;
 			@include make-row();
-        
+			
+			.field {
+				margin-bottom: 5px;
+			}
+			
 			.field-guest-title {
 				display: none;
 			}
 		
 			.field-guest-first, .field-guest-last {
-				@include make-xs-column(12);
-				@include make-sm-column(6);
-				@include make-md-column(5);
+				@include make-sm-column(5);
 			}
 		
 			.field-guest-meal {
-				@include make-xs-column(12);
-				@include make-md-column(2);
+				@include make-sm-column(2);
 			}
 		}
     }
