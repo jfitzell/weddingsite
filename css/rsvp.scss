@@ -19,6 +19,8 @@
 @import "bootstrap/forms";
 @import "bootstrap/buttons";
 
+@import "bootstrap/panels";
+@import "bootstrap/utilities";
 
 /* Form validation - Bootstrap overrides */
 .has-error .control-label, .has-success .control-label, .has-success .radio {
@@ -35,8 +37,16 @@
 
 
 .wrapper {
-    width: inherit;
-    max-width: 760px;
+	@include container-fixed;
+
+	@media (min-width: $screen-sm-min) {
+		width: $container-sm;
+	}
+/* 
+	@media (min-width: $screen-md-min) {
+		width: $container-md;
+	}
+ */
 }
 
 #rsvp-form {
@@ -47,36 +57,92 @@
 
 
     /* Form structure */
-    .block .block-navigation {
-        clear: left;
-    }    
+    .block {
+    	@include make-row();
+    	@include make-xs-column(12);
+	
+	    .block-navigation {
+    	    @include make-row();
+    	    @include make-xs-column(12);
+    	    
+    	    button {
+    	    	@extend .btn, .btn-info;
+    	    }
+    	    
+    	    .button-prev {
+    	    	@extend .pull-left;
+    	    }
+    	    
+    	    .button-next {
+    	    	@extend .pull-right;
+    	    }
+    	    
+    	    .button-submit {
+    	    	@extend .btn, .btn-success;
+    	    	@extend .pull-right;
+    	    }
+	    }
+	}
+    
+    .field {
+	    @extend .form-group;
+	    @include make-xs-column(12);
+    }
+    
+    .block1 {
+    	.field-firstname, .field-lastname {
+    		@include make-xs-column(12);
+            @include make-sm-column(6);
+            @extend .field;
+    	}
+    	
+/* 
+    	.field-email, .field-attending {
+    		@include make-xs-column(12);		
+    	}
+ */
+    }
+    
+    .block2 {
+    	.field-guestcount {
+    		@include make-row();
+    		@extend .form-inline;
+    	}
+    	
+    	.guest-details {
+	    	@include make-row();
+			@include make-xs-column(12);
+		}
+    }
     
     
     /* Form content */
     .guest {
-//        clear: left;
-        @include make-row();
-    
-//         .form-group {
-//             float: left;
-//             padding-left: 3px;
-//             padding-right: 3px;
-//         }
+        @extend .panel, .panel-primary;
         
-        .guest-first, .guest-last {
-//             width: 40%;
+        .guest-label {
+        	@extend .panel-heading;
+        	display: block;
+        	padding-top: 2px;
+        	padding-bottom: 2px;
+        }
+        
+        .guest-fields {
+        	@extend .panel-body;
+			@include make-row();
+        }
+        
+        .field-guest-first, .field-guest-last {
             @include make-xs-column(12);
             @include make-sm-column(6);
             @include make-md-column(5);
         }
         
-        .guest-title {
-        /* 	width: 10%; */
+        .field-guest-title {
             display: none;
         }
         
-        .guest-meal {
-//             width: 20%;
+        .field-guest-meal {
             @include make-xs-column(12);
             @include make-md-column(2);
         }

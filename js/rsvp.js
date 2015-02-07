@@ -37,10 +37,10 @@ function initializeParsley() {
 		successClass: "has-success",
 	    errorClass: "has-error",
 		classHandler: function (el) {
-			return el.$element.closest(".form-group");
+			return el.$element.closest(".field");
 		},
 		errorsContainer: function (el) {
-			return el.$element.closest(".form-group");
+			return el.$element.closest(".field");
 		},
 		errorsWrapper: '<p class="help-block"></p>',
 		errorTemplate: '<span></span>',
