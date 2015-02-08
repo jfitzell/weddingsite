@@ -1,23 +1,7 @@
 $(document).ready(function () {
 	initializeParsley();
 
-	$('.next').on('click', function () {
-		var parsley = $('#rsvp-form').parsley();
-		var current = $(this).data('currentStep'),
-			next = $(this).data('nextStep');
-
-		// only validate going forward. If current group is invalid, do not go further
-		// .parsley().validate() returns validation result AND show errors
-		if (next > current)
-			if (false === parsley.validate('step' + current))
-				return;
-
-		// validation was ok. We can go on next step.
-		$('.step' + current).hide();
-		parsley.reset();
-		$('.step' + next).show();
-		$('.step' + next).find(':input').first().focus();
-	});
+	$('.next').click(changeStep);
 
 	$("input[name='entry.507744476']:radio").change(updateGuestCountFromAttendanceBoolean);
 
@@ -45,6 +29,24 @@ function initializeParsley() {
 		errorsWrapper: '<p class="help-block"></p>',
 		errorTemplate: '<span></span>',
 	});
+}
+
+function changeStep() {
+	var parsley = $('#rsvp-form').parsley();
+	var current = $(this).data('currentStep'),
+		next = $(this).data('nextStep');
+
+	// only validate going forward. If current group is invalid, do not go further
+	// .parsley().validate() returns validation result AND show errors
+	if (next > current)
+		if (false === parsley.validate('step' + current))
+			return;
+
+	// validation was ok. We can go on next step.
+	$('.step' + current).hide();
+	parsley.reset();
+	$('.step' + next).show();
+	$('.step' + next).find(':input').first().focus();
 }
 
 function adjustNumberOfGuestEntries() {
