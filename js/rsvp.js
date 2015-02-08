@@ -1,16 +1,22 @@
 $(document).ready(function () {
+	// Set up Parsley
+	$('.step').each(function () {
+		var stepId = $(this).data('step');
+		$(this).find(':input').attr('data-parsley-group', stepId)
+	});
 	initializeParsley();
 
+	// Hide inactive steps and hook up step navigation UI elements
+	$('.step').slice(1).hide();
+	$('.step-navigation').show();
 	$('.next').click(changeStep);
-
-	$("input[name='entry.507744476']:radio").change(updateGuestCountFromAttendanceBoolean);
-
-	$('#guest_count').change(adjustNumberOfGuestEntries).change();
-
-	$('#user_first_dynamic, #user_last_dynamic').change(updateFirstGuestWithVisitorNames);
-
 	$('#ss-submit').click(validateForm);
 
+	// Sync data between fields	$("input[name='entry.507744476']:radio").change(updateGuestCountFromAttendanceBoolean);
+	$('#guest_count').change(adjustNumberOfGuestEntries).change();
+	$('#user_first_dynamic, #user_last_dynamic').change(updateFirstGuestWithVisitorNames);
+
+	// Focus the first field
 	$('#rsvp-form :input').first().focus();
 });
 
@@ -32,21 +38,24 @@ function initializeParsley() {
 }
 
 function changeStep() {
-	var parsley = $('#rsvp-form').parsley();
-	var current = $(this).data('currentStep'),
-		next = $(this).data('nextStep');
+	var form = $('#rsvp-form');
+	var parsley = form.parsley();
+	var steps = form.find('[data-step]');
+	var current = $(this).closest('[data-step]');
+	var nextId = $(this).data('next-step');
+	var next = form.find('[data-step=' + nextId + ']');
 
 	// only validate going forward. If current group is invalid, do not go further
 	// .parsley().validate() returns validation result AND show errors
-	if (next > current)
-		if (false === parsley.validate('step' + current))
+	if (steps.index(next) > steps.index(current))
+		if (false === parsley.validate(current.data('step')))
 			return;
 
 	// validation was ok. We can go on next step.
-	$('.step' + current).hide();
+	steps.hide();
 	parsley.reset();
-	$('.step' + next).show();
-	$('.step' + next).find(':input').first().focus();
+	next.show();
+	next.find(':input').first().focus();
 }
 
 function adjustNumberOfGuestEntries() {

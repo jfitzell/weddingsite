@@ -70,7 +70,11 @@
     }
 
     .step {
+		clear: both;
+		
 	    .step-navigation {
+	    	display: none;
+	    	
     	    button {
     	    	@extend .btn, .btn-info;
     	    }
