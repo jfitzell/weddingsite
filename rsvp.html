@@ -39,41 +39,41 @@ fields:
   comments:
 ---
 <form action="https://docs.google.com/forms/d/1w-INu_xopywyd8EWIuFBCoR3Oh9H8sfaDZew6wlIIpU/formResponse" method="post" id="rsvp-form" target="_self" name="ss-form">
-	<div class="block block1">
-		<div class="block-fields">
+	<div class="step step1">
+		<div class="step-fields">
 			<div class="field field-firstname">
 				<label class="control-label" for="">First&nbsp;Name</label>
-				<input class="form-control" type="text" id="user_first_dynamic" name="{{ page.fields.guests[0].first }}" placeholder="First Name" size="10" title="" required data-parsley-group="block1"/>
+				<input class="form-control" type="text" id="user_first_dynamic" name="{{ page.fields.guests[0].first }}" placeholder="First Name" size="10" title="" required data-parsley-group="step1"/>
 			</div>
 			<div class="field field-lastname">
 				<label class="control-label" for="">Last&nbsp;Name</label>
-				<input class="form-control" id="user_last_dynamic" type="text" name="{{ page.fields.guests[0].last }}" placeholder="Last Name" title="" size="10" required  data-parsley-group="block1"/>
+				<input class="form-control" id="user_last_dynamic" type="text" name="{{ page.fields.guests[0].last }}" placeholder="Last Name" title="" size="10" required  data-parsley-group="step1"/>
 			</div>
 			<div class="field field-email">
 				<label class="control-label" for="">What's the best email address to reach you?</label>
-				<input class="form-control" type="email" name="{{ page.fields.email }}" placeholder="user@example.com" title="" size="10" required  data-parsley-group="block1"/>
+				<input class="form-control" type="email" name="{{ page.fields.email }}" placeholder="user@example.com" title="" size="10" required  data-parsley-group="step1"/>
 			</div>	
 			<div class="field field-attending">
 				<label class="control-label">Will you be joining us?</label>
 				<div class="radio">
-					<label><input type="radio" name="{{ page.fields.attending }}" value="yes" data-parsley-group="block1" required />Yes, can't wait!</label>
+					<label><input type="radio" name="{{ page.fields.attending }}" value="yes" data-parsley-group="step1" required />Yes, can't wait!</label>
 				</div>
 				<div class="radio">
-					<label class="radio"><input type="radio" name="{{ page.fields.attending }}" value="no" data-parsley-group="block1" required />No, sorry, wish I could be there</label>
+					<label class="radio"><input type="radio" name="{{ page.fields.attending }}" value="no" data-parsley-group="step1" required />No, sorry, wish I could be there</label>
 				</div>
 			</div>
 		</div>
 		
-		<div class="block-navigation">
-			<button type="button" class="next button-next" data-current-block="1" data-next-block="2">Next &gt;</button>
+		<div class="step-navigation">
+			<button type="button" class="next button-next" data-current-step="1" data-next-step="2">Next &gt;</button>
 		</div>
 	</div>
 	
-	<div class="block block2 default-hidden">
-		<div class="block-fields">
+	<div class="step step2 default-hidden">
+		<div class="step-fields">
 			<div class="field field-guestcount">
 				<label class="control-label" for="guest_count">How many (including yourself) will be attending?</label>
-				<select class="form-control" name="entry.524253547" id="guest_count" required data-parsley-group="block2">
+				<select class="form-control" name="entry.524253547" id="guest_count" required data-parsley-group="step2">
 					<option value="0" selected disabled></option>
 					{% for i in (1..page.fields.guests.size) %}
 					<option value="{{ i }}">{{ i }}</option>
@@ -89,7 +89,7 @@ fields:
 		<!-- 
 					<div class="field guest-title">
 						<label class="control-label" for="">Title</label>
-						<input class="form-control" type="text" name="{{ guest.title }}" placeholder="Mr/Mrs" title="Title" size="4" data-parsley-group="block2"/>
+						<input class="form-control" type="text" name="{{ guest.title }}" placeholder="Mr/Mrs" title="Title" size="4" data-parsley-group="step2"/>
 					</div>
 		 -->
 					<div class="guest-fields">
@@ -98,7 +98,7 @@ fields:
 							{% if forloop.first %}
 							<div class="form-control-static" id="user_first_static"></div>
 							{% else %}
-							<input class="form-control" type="text" name="{{ guest.first }}" placeholder="First Name" title="First Name" size="10" data-parsley-group="block2" required />
+							<input class="form-control" type="text" name="{{ guest.first }}" placeholder="First Name" title="First Name" size="10" data-parsley-group="step2" required />
 							{% endif %}
 						</div>
 						<div class="field field-guest-last">
@@ -106,12 +106,12 @@ fields:
 							{% if forloop.first %}
 							<div class="form-control-static" id="user_last_static"></div>
 							{% else %}
-							<input class="form-control" type="text" name="{{ guest.last }}" placeholder="Last Name" title="Last Name" size="10" data-parsley-group="block2" required />
+							<input class="form-control" type="text" name="{{ guest.last }}" placeholder="Last Name" title="Last Name" size="10" data-parsley-group="step2" required />
 							{% endif %}
 						</div>
 						<div class="field field-guest-meal">
 							<label class="control-label" for="">Meal&nbsp;Choice</label>
-							<select class="form-control" name="{{ guest.meal }}" required data-parsley-group="block2">
+							<select class="form-control" name="{{ guest.meal }}" required data-parsley-group="step2">
 								<option value="Meat">Meat</option>
 								<option value="Veg">Veg</option>
 								<option value="Child">Child</option>
@@ -123,17 +123,17 @@ fields:
 			</div>
 		</div>
 				
-		<div class="block-navigation">
-			<button type="button" class="next button-next" data-current-block="2" data-next-block="3">Next &gt;</button>
-			<button type="button" class="next button-prev" data-current-block="2" data-next-block="1">&lt; Prev</button>
+		<div class="step-navigation">
+			<button type="button" class="next button-next" data-current-step="2" data-next-step="3">Next &gt;</button>
+			<button type="button" class="next button-prev" data-current-step="2" data-next-step="1">&lt; Prev</button>
 		</div>
 	</div>
 
-	<div class="block block3 default-hidden">
-		<div class="block-fields">
+	<div class="step step3 default-hidden">
+		<div class="step-fields">
 			<div class="field field-transport-ceremony">
 				<label class="control-label" for="">Would you like coach transport to the ceremony?</label>
-				<select class="form-control" name="{{ page.fields.shuttle.ceremony }}" data-parsley-group="block3" required>
+				<select class="form-control" name="{{ page.fields.shuttle.ceremony }}" data-parsley-group="step3" required>
 					<option value="" selected disabled></option>
 					<option value="parr">Yes, from Parr Hall</option>
 					<option value="mercure">Yes, from the Mercure Bolton Georgian House</option>
@@ -143,7 +143,7 @@ fields:
 			</div>
 			<div class="field field-transport-reception">
 				<label class="control-label" for="">Would you like coach transport between the ceremony and the reception?</label>
-				<select class="form-control" name="{{ page.fields.shuttle.reception }}" data-parsley-group="block3" required>
+				<select class="form-control" name="{{ page.fields.shuttle.reception }}" data-parsley-group="step3" required>
 					<option value="" selected disabled></option>
 					<option value="yes">Yes please</option>
 					<option value="no">No thanks, we'll make our own way</option>
@@ -152,7 +152,7 @@ fields:
 			<div class="field field-transport-home">
 				<label class="control-label" for="">Would you like coach transport after the reception?</label>
 				<span class="help-block">Coaches will depart between midnight and 12:15</span>
-				<select class="form-control" name="{{ page.fields.shuttle.home }}" data-parsley-group="block3" required>
+				<select class="form-control" name="{{ page.fields.shuttle.home }}" data-parsley-group="step3" required>
 					<option value="" selected disabled></option>
 					<option value="parr">Yes, to Parr Hall</option>
 					<option value="mercure">Yes, to the Mercure Bolton Georgian House</option>
@@ -162,22 +162,22 @@ fields:
 			</div>
 		</div>
 		
-		<div class="block-navigation">
-			<button type="button" class="next button-next" data-current-block="3" data-next-block="4">Next &gt;</button>
-			<button type="button" class="next button-prev" data-current-block="3" data-next-block="2">&lt; Prev</button>
+		<div class="step-navigation">
+			<button type="button" class="next button-next" data-current-step="3" data-next-step="4">Next &gt;</button>
+			<button type="button" class="next button-prev" data-current-step="3" data-next-step="2">&lt; Prev</button>
 		</div>
 	</div>
 
-	<div class="block block4 default-hidden">
+	<div class="step step4 default-hidden">
 		<div class="field">
 			<label class="control-label" for="entry_883892337">Other Comments</label>
 			<span class="help-block">Have a food allergy? Need a highchair? Is there anything else we should know?</span>
-			<textarea class="form-control" name="{{ page.fields.comments }}" rows="8" cols="0" data-parsley-group="block4"></textarea>
+			<textarea class="form-control" name="{{ page.fields.comments }}" rows="8" cols="0" data-parsley-group="step4"></textarea>
 		</div>
 
-		<div class="block-navigation">
+		<div class="step-navigation">
 			<input type="submit" class="button-submit" name="submit" value="RSVP!" id="ss-submit" />
-			<button type="button" class="next button-prev" data-current-block="4" data-next-block="3">&lt; Prev</button>
+			<button type="button" class="next button-prev" data-current-step="4" data-next-step="3">&lt; Prev</button>
 		</div>
 	</div>
 </form>

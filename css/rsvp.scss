@@ -69,8 +69,8 @@
 	    @extend .form-group;
     }
 
-    .block {
-	    .block-navigation {
+    .step {
+	    .step-navigation {
     	    button {
     	    	@extend .btn, .btn-info;
     	    }
@@ -90,7 +90,7 @@
 	    }
 	}
     
-    .block1 .block-fields {
+    .step1 .step-fields {
     	@include make-row();
     	
     	.field-firstname, .field-lastname {
@@ -102,7 +102,7 @@
     	}
     }
     
-    .block2 {
+    .step2 {
     	.field-guestcount {
     		@extend .form-inline;
     	}

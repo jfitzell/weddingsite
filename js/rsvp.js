@@ -3,20 +3,20 @@ $(document).ready(function () {
 
 	$('.next').on('click', function () {
 		var parsley = $('#rsvp-form').parsley();
-		var current = $(this).data('currentBlock'),
-			next = $(this).data('nextBlock');
+		var current = $(this).data('currentStep'),
+			next = $(this).data('nextStep');
 
 		// only validate going forward. If current group is invalid, do not go further
 		// .parsley().validate() returns validation result AND show errors
 		if (next > current)
-			if (false === parsley.validate('block' + current))
+			if (false === parsley.validate('step' + current))
 				return;
 
 		// validation was ok. We can go on next step.
-		$('.block' + current).hide();
+		$('.step' + current).hide();
 		parsley.reset();
-		$('.block' + next).show();
-		$('.block' + next).find(':input').first().focus();
+		$('.step' + next).show();
+		$('.step' + next).find(':input').first().focus();
 	});
 
 	$("input[name='entry.507744476']:radio").change(updateGuestCountFromAttendanceBoolean);
@@ -59,7 +59,7 @@ function adjustNumberOfGuestEntries() {
 	});
 
 	if (guests_select.is(':focus')) {
-		var inputs = guests_select.closest('.block').find(':input');
+		var inputs = guests_select.closest('.step').find(':input');
 		inputs.eq( inputs.index(guests_select) + 1 ).focus();
 	}
 }
