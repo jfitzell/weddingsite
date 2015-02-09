@@ -50,6 +50,11 @@
 	}
 }
 
+.button-submit {
+	@extend .btn, .btn-success;
+	@extend .pull-right;
+}
+    	    
 #rsvp-form {
 	/* Formatting overrides */
     textarea {
@@ -84,11 +89,6 @@
     	    }
     	    
     	    .button-next {
-    	    	@extend .pull-right;
-    	    }
-    	    
-    	    .button-submit {
-    	    	@extend .btn, .btn-success;
     	    	@extend .pull-right;
     	    }
 	    }
@@ -147,5 +147,13 @@
 				@include make-sm-column(2);
 			}
 		}
+    }
+    
+    .guest1 {
+    	.field-guest-first, .field-guest-last {
+    		.control-label {
+    			display: none;
+    		}
+    	}
     }
 }

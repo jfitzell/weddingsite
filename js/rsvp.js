@@ -11,8 +11,14 @@ $(document).ready(function () {
 	$('.step-navigation').show();
 	$('.next').click(changeStep);
 	$('#ss-submit').click(validateForm);
+	$('.guest1')
+		.find('.field-guest-first, .field-guest-last')
+		.find('.control-label')
+		.show();
 
-	// Sync data between fields	$("input[name='entry.507744476']:radio").change(updateGuestCountFromAttendanceBoolean);
+	// Sync data between fields
+	$("input[name='entry.507744476']:radio")
+		.change(updateGuestCountFromAttendanceBoolean);
 	$('#guest_count').change(adjustNumberOfGuestEntries).change();
 	$('#user_first_dynamic, #user_last_dynamic').change(updateFirstGuestWithVisitorNames);
 
@@ -60,7 +66,7 @@ function changeStep() {
 
 function adjustNumberOfGuestEntries() {
 	var guests_select = $('#guest_count')
-	var count = guests_select.val();
+	var count = guests_select.val() || 0;
 	var guests = $('.guest');
 	guests.each(function (i, guest) {
 		if (i < count)

@@ -59,7 +59,7 @@ fields:
 					<label><input type="radio" name="{{ page.fields.attending }}" value="yes" required />Yes, can't wait!</label>
 				</div>
 				<div class="radio">
-					<label class="radio"><input type="radio" name="{{ page.fields.attending }}" value="no" required />No, sorry, wish I could be there</label>
+					<label class="radio"><input type="radio" name="{{ page.fields.attending }}" value="no" required />No, sorry, wish I/we could be there</label>
 				</div>
 			</div>
 		</div>
@@ -74,7 +74,7 @@ fields:
 			<div class="field field-guestcount">
 				<label class="control-label" for="guest_count">How many (including yourself) will be attending?</label>
 				<select class="form-control" name="entry.524253547" id="guest_count" required>
-					<option value="0" selected disabled></option>
+					<option value="" selected disabled></option>
 					{% for i in (1..page.fields.guests.size) %}
 					<option value="{{ i }}">{{ i }}</option>
 					{% endfor %}
@@ -98,7 +98,7 @@ fields:
 							{% if forloop.first %}
 							<div class="form-control-static" id="user_first_static"></div>
 							{% else %}
-							<input class="form-control" type="text" name="{{ guest.first }}" placeholder="First Name" title="First Name" size="10" required />
+							<input class="form-control" type="text" name="{{ guest.first }}" placeholder="First Name" title="First Name" size="10" data-parsley-required />
 							{% endif %}
 						</div>
 						<div class="field field-guest-last">
@@ -106,12 +106,12 @@ fields:
 							{% if forloop.first %}
 							<div class="form-control-static" id="user_last_static"></div>
 							{% else %}
-							<input class="form-control" type="text" name="{{ guest.last }}" placeholder="Last Name" title="Last Name" size="10" required />
+							<input class="form-control" type="text" name="{{ guest.last }}" placeholder="Last Name" title="Last Name" size="10" data-parsley-required />
 							{% endif %}
 						</div>
 						<div class="field field-guest-meal">
 							<label class="control-label" for="">Meal&nbsp;Choice</label>
-							<select class="form-control" name="{{ guest.meal }}" required>
+							<select class="form-control" name="{{ guest.meal }}" {% if forloop.first %}required{% else %}data-parsley-required{% endif%}>
 								<option value="Meat">Meat</option>
 								<option value="Veg">Veg</option>
 								<option value="Child">Child</option>
@@ -170,15 +170,15 @@ fields:
 
 	<div class="step step4" data-step="step4">
 		<div class="field">
-			<label class="control-label" for="entry_883892337">Other Comments</label>
+			<label class="control-label" for="">Other Comments</label>
 			<span class="help-block">Have a food allergy? Need a highchair? Is there anything else we should know?</span>
 			<textarea class="form-control" name="{{ page.fields.comments }}" rows="8" cols="0"></textarea>
 		</div>
 
 		<div class="step-navigation">
-			<input type="submit" class="button-submit" name="submit" value="RSVP!" id="ss-submit" />
 			<button type="button" class="next button-prev" data-next-step="step3">&lt; Prev</button>
 		</div>
+		<input type="submit" class="button-submit" name="submit" value="RSVP!" id="ss-submit" />
 	</div>
 </form>
 <div id="success" class="default-hidden">
