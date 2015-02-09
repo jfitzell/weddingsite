@@ -75,7 +75,7 @@
     }
 
     .step {
-		clear: both;
+		@include clearfix;
 		
 	    .step-navigation {
 	    	display: none;
