@@ -24,6 +24,26 @@ $(document).ready(function () {
 
 	// Focus the first field
 	$('#rsvp-form :input').first().focus();
+	
+	$('.field-song input').typeahead({
+			minLength: 3,
+			highlight: true,
+		},{
+			source: function( query, callback ) {
+				$.ajax({
+					url: 'https://api.spotify.com/v1/search',
+					data: {
+						q: query,
+						type: 'track,artist'
+					},
+					success: function (response) {
+						callback(response.tracks.items);
+					}
+				});
+			},
+			displayKey: 'name'
+		}
+	);
 });
 
 

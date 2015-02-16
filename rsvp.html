@@ -37,6 +37,7 @@ fields:
     reception:
     home:
   comments:
+  songtitle:
 ---
 <form action="https://docs.google.com/forms/d/1w-INu_xopywyd8EWIuFBCoR3Oh9H8sfaDZew6wlIIpU/formResponse" method="post" id="rsvp-form" target="_self" name="ss-form">
 	<div class="step step1" data-step="step1">
@@ -169,7 +170,12 @@ fields:
 	</div>
 
 	<div class="step step4" data-step="step4">
-		<div class="field">
+		<div class="field field-song">
+			<label class="control-label" for="">What's one song that will definitely get you on the dance floor?</label>
+			<input class="form-control" type="text" name="{{ page.fields.songtitle }}" placeholder="e.g. Stayin' Alive, The Bee Gees" title="" autocomplete="off"/>
+		</div>
+		
+		<div class="field field-comments">
 			<label class="control-label" for="">Other Comments</label>
 			<span class="help-block">Have a food allergy? Need a highchair? Is there anything else we should know?</span>
 			<textarea class="form-control" name="{{ page.fields.comments }}" rows="8" cols="0"></textarea>
