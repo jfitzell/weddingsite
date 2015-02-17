@@ -43,7 +43,9 @@ $(document).ready(function () {
 			},
 			displayKey: 'name'
 		}
-	);
+	).on('typeahead:selected', function(event, suggestion, dataset) {
+		$('#song_spotify_id').val(suggestion.id);
+	});
 });
 
 
