@@ -34,14 +34,19 @@ $(document).ready(function () {
 					url: 'https://api.spotify.com/v1/search',
 					data: {
 						q: query,
-						type: 'track,artist'
+						type: 'track'
 					},
 					success: function (response) {
 						callback(response.tracks.items);
 					}
 				});
 			},
-			displayKey: 'name'
+			displayKey: function(suggestion) {
+				return suggestion.name
+					+ ' by '
+					+ suggestion.artists.map(function (artist) { return artist.name }).join(', ')
+					+ '(' + suggestion.popularity + ')';
+			}
 		}
 	).on('typeahead:selected', function(event, suggestion, dataset) {
 		$('#song_spotify_id').val(suggestion.id);
