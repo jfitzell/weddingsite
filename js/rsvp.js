@@ -142,10 +142,9 @@ function submitFormIframe(event) {
 }
 
 function submitFormAjax(event) {
-	// The submission works but we can't detect success because of CORS
-
 	if (event) event.preventDefault();
 	var form = $('#rsvp-form');
+	// We have to send the request via a proxy to make CORS work
 	var action = $('#rsvp-form').prop('action').replace(/https?:\/\/docs.google.com/, 'http://fitzell.ca');
 	$.post(action, form.serialize())
 		.done(doSuccess)
