@@ -10,7 +10,7 @@ $(document).ready(function () {
 	$('.step').slice(1).hide();
 	$('.step-navigation').show();
 	$('.next').click(changeStep);
-	$('#ss-submit').click(validateForm);
+	$('#ss-submit').click(submitFormAjax);
 	$('.guest1')
 		.find('.field-guest-first, .field-guest-last')
 		.find('.control-label')
@@ -145,15 +145,19 @@ function submitFormAjax(event) {
 	// The submission works but we can't detect success because of CORS
 
 	if (event) event.preventDefault();
-	var action = 'http://fitzell.ca/forms/d/1w-INu_xopywyd8EWIuFBCoR3Oh9H8sfaDZew6wlIIpU/formResponse';
 	var form = $('#rsvp-form');
+	var action = $('#rsvp-form').prop('action').replace(/https?:\/\/docs.google.com/, 'http://fitzell.ca');
 	$.post(action, form.serialize())
 		.done(doSuccess)
-		.fail(function(e) { console.log(e) });
+		.fail(function(e) { doFailure(e) });
 }
 
 function doSuccess(data) {
 	console.log('success!');
 	$('#success').show();
 	$('#rsvp-form').hide();
+}
+
+function doFailure(error) {
+	console.log(error)
 }
