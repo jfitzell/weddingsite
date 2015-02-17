@@ -37,22 +37,30 @@ $(document).ready(function () {
 						type: 'track'
 					},
 					success: function (response) {
-						callback(response.tracks.items);
+						callback(uniqBy(response.tracks.items, trackNameAndArtists));
 					}
 				});
 			},
-			displayKey: function(suggestion) {
-				return suggestion.name
-					+ ' by '
-					+ suggestion.artists.map(function (artist) { return artist.name }).join(', ')
-					+ '(' + suggestion.popularity + ')';
-			}
+			displayKey: trackNameAndArtists
 		}
 	).on('typeahead:selected', function(event, suggestion, dataset) {
 		$('#song_spotify_id').val(suggestion.id);
 	});
 });
 
+function trackNameAndArtists(suggestion) {
+	return suggestion.name
+		+ ' by '
+		+ suggestion.artists.map(function (artist) { return artist.name }).join(', ');
+}
+
+function uniqBy(a, key) {
+	var seen = {};
+	return a.filter(function(item) {
+		var k = key(item);
+		return seen.hasOwnProperty(k) ? false : (seen[k] = true);
+	})
+}
 
 function initializeParsley() {
 	$('#rsvp-form').parsley({
