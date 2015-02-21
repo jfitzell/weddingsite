@@ -109,8 +109,8 @@ var RSVPForm = function(form) {
 			errorsContainer: function (el) {
 				return el.$element.closest(".field");
 			},
-			errorsWrapper: '<p class="help-block"></p>',
-			errorTemplate: '<span></span>',
+// 			errorsWrapper: '<p class="help-block"></p>',
+// 			errorTemplate: '<span></span>',
 		});
 	};
 
