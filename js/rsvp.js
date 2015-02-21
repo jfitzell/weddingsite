@@ -77,10 +77,10 @@ var RSVPForm = function(form) {
 			});
 
 		// Sync data between fields
-		self.form.find("input[name='entry.507744476']:radio")
-			.change(self.updateGuestCountFromAttendanceBoolean);
+		self.form.find(".field-attending :radio")
+			.change(self.attendanceChanged);
 		self.form.find('#guest_count').change(self.adjustNumberOfGuestEntries).change();
-		self.form.find('#user_first_dynamic, #user_last_dynamic').change(self.updateFirstGuestWithVisitorNames);
+		self.form.find('#user_first_dynamic, #user_last_dynamic').change(self.nameChanged);
 
 		self.spotifyInput = new SpotifyTrackSearch(self.form.find('.field-song input'), self.form.find('#song_spotify_id'));
 
@@ -148,16 +148,43 @@ var RSVPForm = function(form) {
 		}
 	};
 
-	this.updateFirstGuestWithVisitorNames = function() {
-		self.form.find('#user_first_static').text(self.form.find('#user_first_dynamic').val());
-		self.form.find('#user_last_static').text(self.form.find('#user_last_dynamic').val());
+	this.nameChanged = function() {
+		self.form.find('#user_first_static')
+			.text(self.form.find('#user_first_dynamic').val());
+		self.form.find('#user_last_static')
+			.text(self.form.find('#user_last_dynamic').val());
 	};
 
-	this.updateGuestCountFromAttendanceBoolean = function() {
-		if (self.form.find('.field-attending input:radio').filter(':checked').val() == 'yes')
-			self.form.find('#guest_count').val(1).change();
-		else
-			self.form.find('#guest_count').val(0).change();
+	this.attendanceChanged = function() {
+		var attendance = self.form.find('.field-attending');
+		var attending = attendance.find('input:radio:checked').val();
+
+		var thisStep = attendance.closest('.step');
+		var lastStep = self.form.find(':submit').first().closest('.step');
+
+		var guestCount = self.form.find('#guest_count');
+
+		if ('no' == attending) {
+			// If they're not attending, set guest count to 0 and set the
+			//  navigation buttons to go straight from this step to the last
+			guestCount.val(0);
+			thisStep.find('.button-next')
+				.data('next-step', lastStep.data('step'));
+			lastStep.find('.button-prev')
+				.data('next-step', thisStep.data('step'));
+		} else { // 'yes' or undefined
+			// If they're attending and they haven't already specified how many
+			//  guests, then set it to 1
+			if ('yes' == attending && ! guestCount.val())
+				guestCount.val(1);
+
+			// As they're attending, they need to go through the full form
+			thisStep.find('.button-next').removeData('next-step');
+			lastStep.find('.button-prev').removeData('next-step');
+		}
+
+		// Trigger onchange events for the guest count
+		guestCount.change();
 	};
 
 	this.validateForm = function(event) {
