@@ -69,12 +69,15 @@ var RSVPForm = function(form) {
 			.find('.field-guest-first, .field-guest-last')
 			.find('.control-label')
 			.show();
-		// Prevent Enter submitting the form accidentally
-		self.form.find(':input').not(':button,:submit,textarea')
-			.bind('keypress keydown keyup', function(event) {
-				if (event.keyCode == 13)
-					event.preventDefault();
-			});
+
+		// Prevent Enter submitting the form accidentally, but still allow
+		//   it to work normally on buttons and in textareas
+		self.form.bind('keypress keydown keyup', function(event) {
+			if (event.keyCode == 13 &&
+				! $(event.target).is(':button,:submit,textarea')) {
+				event.preventDefault();
+			}
+		});
 
 		// Sync data between fields
 		self.form.find(".field-attending :radio")
