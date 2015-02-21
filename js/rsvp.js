@@ -132,19 +132,25 @@ var RSVPForm = function(form) {
 	};
 
 	this.adjustNumberOfGuestEntries = function() {
-		var guests_select = self.form.find('#guest_count');
-		var count = guests_select.val() || 0;
+		var guestCount = self.form.find('#guest_count');
+		var count = guestCount.val() || 0;
 		var guests = self.form.find('.guest');
 		guests.each(function (i, guest) {
 			if (i < count)
-				$(guest).show().find('input').attr('data-parsley-required', '');
+				$(guest)
+					.show()
+					.find(':input').attr('data-parsley-required', '');
 			else
-				$(guest).hide().find().removeAttr('data-parsley-required');
+				$(guest)
+					.hide()
+					.find(':input').removeAttr('data-parsley-required');
 		});
 
-		if (guests_select.is(':focus')) {
-			var inputs = guests_select.closest('.step').find(':input');
-			inputs.eq( inputs.index(guests_select) + 1 ).focus();
+		// If the select box is focused (i.e. the value was set by the user,
+		//  not programmatically) then auto-focus the next field
+		if (guestCount.is(':focus')) {
+			var inputs = guestCount.closest('.step').find(':input');
+			inputs.eq( inputs.index(guestCount) + 1 ).focus();
 		}
 	};
 
