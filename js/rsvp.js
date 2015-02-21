@@ -69,6 +69,12 @@ var RSVPForm = function(form) {
 			.find('.field-guest-first, .field-guest-last')
 			.find('.control-label')
 			.show();
+		// Prevent Enter submitting the form accidentally
+		self.form.find(':input').not(':button,:submit,textarea')
+			.bind('keypress keydown keyup', function(event) {
+				if (event.keyCode == 13)
+					event.preventDefault();
+			});
 
 		// Sync data between fields
 		self.form.find("input[name='entry.507744476']:radio")
