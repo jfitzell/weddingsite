@@ -177,6 +177,11 @@ var RSVPForm = function(form) {
 		return selector.closest('[data-step]');
 	};
 
+	this.showAllSteps = function() {
+		self.steps().show();
+		inputs.stepNavButtons.hide();
+	};
+
 	this.firstName = function() {
 		return inputs.firstName.val();
 	};
@@ -194,6 +199,13 @@ var RSVPForm = function(form) {
 			return false;
 		else
 			return undefined;
+	};
+
+	this.requireAttendingFields = function(bool) {
+		if (bool)
+			inputs.attendingRequired.attr('data-parsley-required', '');
+		else
+			inputs.attendingRequired.removeAttr('data-parsley-required');
 	};
 
 
@@ -261,7 +273,7 @@ var RSVPForm = function(form) {
 			lastStep.find('.button-prev')
 				.data('next-step', thisStep.data('step'));
 
-			inputs.attendingRequired.removeAttr('data-parsley-required');
+			self.requireAttendingFields(false);
 		} else if (true === attending) {
 			// If they haven't already specified how many guests, set to 1
 			if (! inputs.guestCount.val())
@@ -271,7 +283,7 @@ var RSVPForm = function(form) {
 			thisStep.find('.button-next').removeData('next-step');
 			lastStep.find('.button-prev').removeData('next-step');
 
-			inputs.attendingRequired.attr('data-parsley-required', '');
+			self.requireAttendingFields(true);
 		}
 
 		// Trigger onchange events for the guest count
@@ -312,8 +324,10 @@ var RSVPForm = function(form) {
 	this.submitAjax = function(event) {
 		if (event) event.preventDefault();
 
-		if (! self.parsley.validate())
+		if (! self.parsley.validate()) {
+			self.showAllSteps();
 			return false;
+		}
 
 		function doSuccess(data) {
 			console.log('success!');
