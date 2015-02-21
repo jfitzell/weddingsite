@@ -77,11 +77,10 @@
     .step {
 		@include clearfix;
 		
-	    .step-navigation {
-	    	display: none;
-	    	
-    	    button {
+	    .step-navigation {	    	
+    	    .button-nav {
     	    	@extend .btn, .btn-info;
+				display: none;
     	    }
     	    
     	    .button-prev {
