@@ -58,12 +58,6 @@ var RSVPForm = function(form) {
 	this.initialize = function(form) {
 		self.form = form;
 
-		// Set up Parsley
-		self.form.find('.step').each(function () {
-			var stepId = $(this).data('step');
-			$(this).find(':input').attr('data-parsley-group', stepId)
-		});
-
 		self.initializeParsley();
 
 		// Hide inactive steps and hook up step navigation UI elements
@@ -89,6 +83,14 @@ var RSVPForm = function(form) {
 	};
 
 	this.initializeParsley = function() {
+		// Assign fields to Parsley groups matching their steps so we can
+		//  validate each step independently.
+		//  Note: this needs to happen *before* Parsley is initialized
+		self.form.find('.step').each(function () {
+			var stepId = $(this).data('step');
+			$(this).find(':input').attr('data-parsley-group', stepId)
+		});
+
 		self.form.parsley({
 			successClass: "has-success",
 			errorClass: "has-error",
