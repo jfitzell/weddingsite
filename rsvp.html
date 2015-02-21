@@ -75,7 +75,7 @@ fields:
 		<div class="step-fields">
 			<div class="field field-guestcount">
 				<label class="control-label" for="guest_count">How many (including yourself) will be attending?</label>
-				<select class="form-control" name="entry.524253547" id="guest_count" required>
+				<select class="form-control" name="entry.524253547" id="guest_count" data-attending-required>
 					<option value="" selected disabled></option>
 					{% for i in (1..page.fields.guests.size) %}
 					<option value="{{ i }}">{{ i }}</option>
@@ -113,7 +113,7 @@ fields:
 						</div>
 						<div class="field field-guest-meal">
 							<label class="control-label" for="">Meal&nbsp;Choice</label>
-							<select class="form-control" name="{{ guest.meal }}" {% if forloop.first %}required{% else %}data-parsley-required{% endif%}>
+							<select class="form-control" name="{{ guest.meal }}" {% if forloop.first %}data-attending-required{% endif%}>
 								<option value="Meat">Meat</option>
 								<option value="Veg">Veg</option>
 								<option value="Child">Child</option>
@@ -135,7 +135,7 @@ fields:
 		<div class="step-fields">
 			<div class="field field-transport-ceremony">
 				<label class="control-label" for="">Would you like coach transport to the ceremony?</label>
-				<select class="form-control" name="{{ page.fields.shuttle.ceremony }}" required>
+				<select class="form-control" name="{{ page.fields.shuttle.ceremony }}" data-attending-required>
 					<option value="" selected disabled></option>
 					<option value="parr">Yes, from Parr Hall</option>
 					<option value="mercure">Yes, from the Mercure Bolton Georgian House</option>
@@ -145,7 +145,7 @@ fields:
 			</div>
 			<div class="field field-transport-reception">
 				<label class="control-label" for="">Would you like coach transport between the ceremony and the reception?</label>
-				<select class="form-control" name="{{ page.fields.shuttle.reception }}" required>
+				<select class="form-control" name="{{ page.fields.shuttle.reception }}" data-attending-required>
 					<option value="" selected disabled></option>
 					<option value="yes">Yes please</option>
 					<option value="no">No thanks, we'll make our own way</option>
@@ -154,7 +154,7 @@ fields:
 			<div class="field field-transport-home">
 				<label class="control-label" for="">Would you like coach transport after the reception?</label>
 				<span class="help-block">Coaches will depart between midnight and 12:15</span>
-				<select class="form-control" name="{{ page.fields.shuttle.home }}" required>
+				<select class="form-control" name="{{ page.fields.shuttle.home }}" data-attending-required>
 					<option value="" selected disabled></option>
 					<option value="parr">Yes, to Parr Hall</option>
 					<option value="mercure">Yes, to the Mercure Bolton Georgian House</option>

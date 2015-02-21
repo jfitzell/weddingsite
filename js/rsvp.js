@@ -110,7 +110,8 @@ var RSVPForm = function(form) {
 		inputs.stepNavButtons = self.$('.step-navigation .button-nav');
 		inputs.submitButton = self.$('.button-submit');
 
-		inputs.attendingRadios = self.$(".field-attending :radio");
+		inputs.attendingRequired = self.$(':input[data-attending-required]');
+		inputs.attendingRadios = self.$('.field-attending :radio');
 		inputs.guestCount = self.$('.field-guestcount select');
 		inputs.guests = self.$('.guest');
 		inputs.firstName = self.$('#user_first_dynamic');
@@ -265,15 +266,17 @@ var RSVPForm = function(form) {
 				.data('next-step', lastStep.data('step'));
 			lastStep.find('.button-prev')
 				.data('next-step', thisStep.data('step'));
-		} else { // 'yes' or undefined
-			// If they're attending and they haven't already specified how many
-			//  guests, then set it to 1
-			if (true === attending && ! inputs.guestCount.val())
+
+			inputs.attendingRequired.removeAttr('data-parsley-required');
+		} else if (true === attending) {
+			// If they haven't already specified how many guests, set to 1
+			if (! inputs.guestCount.val())
 				inputs.guestCount.val(1);
 
 			// As they're attending, they need to go through the full form
-			thisStep.find('.button-next').removeData('next-step');
-			lastStep.find('.button-prev').removeData('next-step');
+			thisStep.find('.button-next, .button-prev').removeData('next-step');
+
+			inputs.attendingRequired.attr('data-parsley-required', '');
 		}
 
 		// Trigger onchange events for the guest count
