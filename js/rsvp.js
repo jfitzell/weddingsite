@@ -139,7 +139,7 @@ var RSVPForm = function(form) {
 			$(this).find(':input').attr('data-parsley-group', stepId)
 		});
 
-		self.parsley({
+		self.parsley = self.form.parsley({
 			successClass: "has-success",
 			errorClass: "has-error",
 			classHandler: function (el) {
@@ -177,11 +177,6 @@ var RSVPForm = function(form) {
 		return selector.closest('[data-step]');
 	};
 
-	// Get the Parsley object associated with the form
-	this.parsley = function() {
-		return self.form.parsley();
-	};
-
 	this.firstName = function() {
 		return inputs.firstName.val();
 	};
@@ -206,7 +201,6 @@ var RSVPForm = function(form) {
 	 * Event handlers
 	 **********************/
 	this.changeStep = function(event) {
-		var parsley = self.parsley();
 		var steps = self.steps();
 		var current = self.stepFor($(event.target));
 		var currentId = current.data('step');
@@ -216,12 +210,12 @@ var RSVPForm = function(form) {
 		// only validate going forward. If current group is invalid, do not go further
 		// .parsley().validate() returns validation result AND show errors
 		if (steps.index(next) > steps.index(current))
-			if (false === parsley.validate(currentId))
+			if (false === self.parsley.validate(currentId))
 				return;
 
 		// validation was ok. We can go on next step.
 		steps.hide();
-		parsley.reset();
+		self.parsley.reset();
 		next.show();
 		next.find(':input').first().focus();
 	};
@@ -290,7 +284,7 @@ var RSVPForm = function(form) {
 	this.validate = function(event) {
 		if (event) event.preventDefault();
 
-		self.parsley().validate();
+		self.parsley.validate();
 	};
 
 	this.submitIframe = function(event) {
@@ -317,7 +311,7 @@ var RSVPForm = function(form) {
 	this.submitAjax = function(event) {
 		if (event) event.preventDefault();
 
-		if (! self.parsley().validate())
+		if (! self.parsley.validate())
 			return false;
 
 		function doSuccess(data) {
