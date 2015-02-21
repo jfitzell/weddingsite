@@ -268,7 +268,8 @@ var RSVPForm = function(form) {
 				inputs.guestCount.val(1);
 
 			// As they're attending, they need to go through the full form
-			thisStep.find('.button-next, .button-prev').removeData('next-step');
+			thisStep.find('.button-next').removeData('next-step');
+			lastStep.find('.button-prev').removeData('next-step');
 
 			inputs.attendingRequired.attr('data-parsley-required', '');
 		}
