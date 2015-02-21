@@ -100,7 +100,7 @@ fields:
 							{% if forloop.first %}
 							<div class="form-control-static" id="user_first_static"></div>
 							{% else %}
-							<input class="form-control" type="text" name="{{ guest.first }}" placeholder="First Name" title="First Name" size="10" data-parsley-required />
+							<input class="form-control" type="text" name="{{ guest.first }}" placeholder="First Name" title="First Name" size="10" />
 							{% endif %}
 						</div>
 						<div class="field field-guest-last">
@@ -108,7 +108,7 @@ fields:
 							{% if forloop.first %}
 							<div class="form-control-static" id="user_last_static"></div>
 							{% else %}
-							<input class="form-control" type="text" name="{{ guest.last }}" placeholder="Last Name" title="Last Name" size="10" data-parsley-required />
+							<input class="form-control" type="text" name="{{ guest.last }}" placeholder="Last Name" title="Last Name" size="10" />
 							{% endif %}
 						</div>
 						<div class="field field-guest-meal">

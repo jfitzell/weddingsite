@@ -90,7 +90,6 @@ var RSVPForm = function(form) {
 
 	this.initializeParsley = function() {
 		self.form.parsley({
-			excluded: "input[type=button], input[type=submit], input[type=reset], input[type=hidden], :hidden",
 			successClass: "has-success",
 			errorClass: "has-error",
 			classHandler: function (el) {
@@ -130,9 +129,9 @@ var RSVPForm = function(form) {
 		var guests = self.form.find('.guest');
 		guests.each(function (i, guest) {
 			if (i < count)
-				$(guest).show();
+				$(guest).show().find('input').attr('data-parsley-required', '');
 			else
-				$(guest).hide();
+				$(guest).hide().find().removeAttr('data-parsley-required');
 		});
 
 		if (guests_select.is(':focus')) {
