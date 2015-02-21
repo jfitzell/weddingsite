@@ -259,31 +259,40 @@ var RSVPForm = function(form) {
 	};
 
 	this.attendanceChanged = function() {
+		function createAjaxSubmit() {
+			return $('<button class="button-submit">RSVP!</button>')
+				.click(function (event) {
+					if (! self.parsley.validate(thisStep.data('step')))
+						event.preventDefault();
+					else
+						self.submitAjax(event);
+				});
+		}
+
 		var attending = self.attending();
 
 		var thisStep = self.stepFor(inputs.attendingRadios);
-		var lastStep = self.stepFor(inputs.submitButton);
+		var nextButton = $('.button-next', thisStep);
+		var regretsSubmit = thisStep.find('.button-submit');
 
 		if (false === attending) {
-			// If they're not attending, set guest count to 0 and set the
-			//  navigation buttons to go straight from this step to the last
+			// If they're not attending, set guest count to 0 and add an
+			//  RSVP button
 			inputs.guestCount.val(0);
-			thisStep.find('.button-next')
-				.data('next-step', lastStep.data('step'));
-			lastStep.find('.button-prev')
-				.data('next-step', thisStep.data('step'));
-
 			self.requireAttendingFields(false);
+			nextButton.hide();
+
+			if (regretsSubmit.length > 0)
+				regretsSubmit.show();
+			else
+				createAjaxSubmit().appendTo($('.step-navigation', thisStep));
 		} else if (true === attending) {
 			// If they haven't already specified how many guests, set to 1
-			if (! inputs.guestCount.val())
-				inputs.guestCount.val(1);
-
-			// As they're attending, they need to go through the full form
-			thisStep.find('.button-next').removeData('next-step');
-			lastStep.find('.button-prev').removeData('next-step');
-
+			if (! inputs.guestCount.val()) inputs.guestCount.val(1);
 			self.requireAttendingFields(true);
+			nextButton.show();
+
+			regretsSubmit.hide();
 		}
 
 		// Trigger onchange events for the guest count
