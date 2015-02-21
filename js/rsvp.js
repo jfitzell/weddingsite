@@ -53,19 +53,26 @@ var SpotifyTrackSearch = function(input, hidden) {
 };
 
 var RSVPForm = function(form) {
+	/**********************
+	 * Private variables
+	 **********************/
 	var self = this;
+	var inputs = {};
 
+
+	/**********************
+	 * Initialization
+	 **********************/
 	this.initialize = function(form) {
 		self.form = form;
 
 		self.initializeParsley();
+		self.initializeInputs();
 
-		// Hide inactive steps and hook up step navigation UI elements
-		self.form.find('.step').slice(1).hide();
-		self.form.find('.step-navigation .button-nav').show();
-		self.form.find('.button-nav').click(self.changeStep);
-		self.form.find('#ss-submit').click(self.submitFormAjax);
-		self.form.find('.guest1')
+		// Show/hide elements appropriately for JS form
+		self.steps().slice(1).hide();
+		inputs.stepNavButtons.show();
+		self.$('.guest1')
 			.find('.field-guest-first, .field-guest-last')
 			.find('.control-label')
 			.show();
@@ -79,28 +86,59 @@ var RSVPForm = function(form) {
 			}
 		});
 
-		// Sync data between fields
-		self.form.find(".field-attending :radio")
-			.change(self.attendanceChanged);
-		self.form.find('#guest_count').change(self.adjustNumberOfGuestEntries).change();
-		self.form.find('#user_first_dynamic, #user_last_dynamic').change(self.nameChanged);
+		// Set up button click handlers
+		inputs.stepNavButtons.click(self.changeStep);
+		inputs.submitButton.click(self.submitAjax);
 
-		self.spotifyInput = new SpotifyTrackSearch(self.form.find('.field-song input'), self.form.find('#song_spotify_id'));
+		// Set up onchange handlers for inputs
+		inputs.attendingRadios.change(self.attendanceChanged);
+		inputs.guestCount.change(self.guestCountChanged);
+		inputs.firstName.change(self.nameChanged);
+		inputs.lastName.change(self.nameChanged);
+
+		self.spotifyInput = new SpotifyTrackSearch(
+			inputs.song,
+			inputs.songId);
+
+		self.updateDynamicFields();
 
 		// Focus the first field
-		self.form.find(':input').first().focus();
+		self.$(':input').first().focus();
+	};
+
+	this.initializeInputs = function() {
+		inputs.stepNavButtons = self.$('.step-navigation .button-nav');
+		inputs.submitButton = self.$('.button-submit');
+
+		inputs.attendingRadios = self.$(".field-attending :radio");
+		inputs.guestCount = self.$('.field-guestcount select');
+		inputs.guests = self.$('.guest');
+		inputs.firstName = self.$('#user_first_dynamic');
+		inputs.lastName = self.$('#user_last_dynamic');
+
+		inputs.guest1First = self.$('#user_first_static');
+		inputs.guest1Last = self.$('#user_last_static');
+
+		inputs.song = self.$('.field-song input');
+		inputs.songId = self.$('#song_spotify_id');
+	};
+
+	this.updateDynamicFields = function() {
+		self.nameChanged();
+		self.attendanceChanged();
+		self.guestCountChanged();
 	};
 
 	this.initializeParsley = function() {
 		// Assign fields to Parsley groups matching their steps so we can
 		//  validate each step independently.
 		//  Note: this needs to happen *before* Parsley is initialized
-		self.form.find('.step').each(function () {
+		self.steps().each(function () {
 			var stepId = $(this).data('step');
 			$(this).find(':input').attr('data-parsley-group', stepId)
 		});
 
-		self.form.parsley({
+		self.parsley({
 			successClass: "has-success",
 			errorClass: "has-error",
 			classHandler: function (el) {
@@ -109,22 +147,75 @@ var RSVPForm = function(form) {
 			errorsContainer: function (el) {
 				return el.$element.closest(".field");
 			},
-// 			errorsWrapper: '<p class="help-block"></p>',
-// 			errorTemplate: '<span></span>',
 		});
 	};
 
+
+
+	/**********************
+	 * Accessors
+	 **********************/
+
+	// Facilitate search for elements within this form
+	this.$ = function(arg) {
+		return $(arg, self.form);
+	};
+
+	// Get all steps
+	this.steps = function() {
+		return self.$('[data-step]');
+	};
+
+	// Get a step by ID
+	this.step = function(stepId) {
+		return self.$('[data-step=' + stepId + ']');
+	};
+
+	// Get the step that contains the specified element
+	this.stepFor = function(selector) {
+		return selector.closest('[data-step]');
+	};
+
+	// Get the Parsley object associated with the form
+	this.parsley = function() {
+		return self.form.parsley();
+	};
+
+	this.firstName = function() {
+		return inputs.firstName.val();
+	};
+
+	this.lastName = function() {
+		return inputs.lastName.val();
+	};
+
+	this.attending = function() {
+		var attending = inputs.attendingRadios.filter(':checked').val();
+
+		if ('yes' == attending)
+			return true;
+		else if ('no' == attending)
+			return false;
+		else
+			return undefined;
+	};
+
+
+	/**********************
+	 * Event handlers
+	 **********************/
 	this.changeStep = function(event) {
-		var parsley = self.form.parsley();
-		var steps = self.form.find('[data-step]');
-		var current = $(event.target).closest('[data-step]');
+		var parsley = self.parsley();
+		var steps = self.steps();
+		var current = self.stepFor($(event.target));
+		var currentId = current.data('step');
 		var nextId = $(event.target).data('next-step');
-		var next = self.form.find('[data-step=' + nextId + ']');
+		var next = self.step(nextId);
 
 		// only validate going forward. If current group is invalid, do not go further
 		// .parsley().validate() returns validation result AND show errors
 		if (steps.index(next) > steps.index(current))
-			if (false === parsley.validate(current.data('step')))
+			if (false === parsley.validate(currentId))
 				return;
 
 		// validation was ok. We can go on next step.
@@ -134,11 +225,9 @@ var RSVPForm = function(form) {
 		next.find(':input').first().focus();
 	};
 
-	this.adjustNumberOfGuestEntries = function() {
-		var guestCount = self.form.find('#guest_count');
-		var count = guestCount.val() || 0;
-		var guests = self.form.find('.guest');
-		guests.each(function (i, guest) {
+	this.guestCountChanged = function() {
+		var count = inputs.guestCount.val() || 0;
+		inputs.guests.each(function (i, guest) {
 			if (i < count)
 				$(guest)
 					.show()
@@ -151,32 +240,27 @@ var RSVPForm = function(form) {
 
 		// If the select box is focused (i.e. the value was set by the user,
 		//  not programmatically) then auto-focus the next field
-		if (guestCount.is(':focus')) {
-			var inputs = guestCount.closest('.step').find(':input');
-			inputs.eq( inputs.index(guestCount) + 1 ).focus();
+		if (inputs.guestCount.is(':focus')) {
+			var stepInputs = self.stepFor(inputs.guestCount).find(':input');
+			stepInputs.eq( stepInputs.index(inputs.guestCount) + 1 ).focus();
 		}
 	};
 
 	this.nameChanged = function() {
-		self.form.find('#user_first_static')
-			.text(self.form.find('#user_first_dynamic').val());
-		self.form.find('#user_last_static')
-			.text(self.form.find('#user_last_dynamic').val());
+		inputs.guest1First.text(self.firstName());
+		inputs.guest1Last.text(self.lastName());
 	};
 
 	this.attendanceChanged = function() {
-		var attendance = self.form.find('.field-attending');
-		var attending = attendance.find('input:radio:checked').val();
+		var attending = self.attending();
 
-		var thisStep = attendance.closest('.step');
-		var lastStep = self.form.find(':submit').first().closest('.step');
+		var thisStep = self.stepFor(inputs.attendingRadios);
+		var lastStep = self.stepFor(inputs.submitButton);
 
-		var guestCount = self.form.find('#guest_count');
-
-		if ('no' == attending) {
+		if (false === attending) {
 			// If they're not attending, set guest count to 0 and set the
 			//  navigation buttons to go straight from this step to the last
-			guestCount.val(0);
+			inputs.guestCount.val(0);
 			thisStep.find('.button-next')
 				.data('next-step', lastStep.data('step'));
 			lastStep.find('.button-prev')
@@ -184,8 +268,8 @@ var RSVPForm = function(form) {
 		} else { // 'yes' or undefined
 			// If they're attending and they haven't already specified how many
 			//  guests, then set it to 1
-			if ('yes' == attending && ! guestCount.val())
-				guestCount.val(1);
+			if (true === attending && ! inputs.guestCount.val())
+				inputs.guestCount.val(1);
 
 			// As they're attending, they need to go through the full form
 			thisStep.find('.button-next').removeData('next-step');
@@ -193,16 +277,20 @@ var RSVPForm = function(form) {
 		}
 
 		// Trigger onchange events for the guest count
-		guestCount.change();
+		inputs.guestCount.change();
 	};
 
-	this.validateForm = function(event) {
+
+	/**********************
+	 * Validation / Submission
+	 **********************/
+	this.validate = function(event) {
 		if (event) event.preventDefault();
 
-		self.form.parsley().validate();
+		self.parsley().validate();
 	};
 
-	this.submitFormIframe = function(event) {
+	this.submitIframe = function(event) {
 		if (event) event.preventDefault();
 
 		// Let's create the iFrame used to send our data
@@ -223,10 +311,10 @@ var RSVPForm = function(form) {
 		self.form.submit();
 	};
 
-	this.submitFormAjax = function(event) {
+	this.submitAjax = function(event) {
 		if (event) event.preventDefault();
 
-		if (! self.form.parsley().validate())
+		if (! self.parsley().validate())
 			return false;
 
 		function doSuccess(data) {
