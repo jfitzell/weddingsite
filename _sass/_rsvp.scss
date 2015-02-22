@@ -1,0 +1,110 @@
+.confirm {
+	display: none;
+}
+
+#rsvp-form {
+	/* Formatting overrides */
+    textarea {
+    	resize: vertical;
+    }
+
+	.help-block {
+		margin-top: -3px;
+		margin-bottom: 5px;
+		font-size: 90%;
+		font-style: italic;
+	}
+
+
+    /* Form structure */
+    .field {
+	    @extend .form-group !optional;
+    }
+    
+	.button-submit {
+		@extend .btn, .btn-success;
+		@extend .pull-right;
+	}	    
+
+    .step {
+		@include clearfix;
+		
+	    .step-navigation {	    	
+    	    .button-nav {
+    	    	@extend .btn, .btn-info;
+				display: none;
+    	    }
+    	    
+    	    .button-prev {
+    	    	@extend .pull-left;
+    	    }
+    	    
+    	    .button-next {
+    	    	@extend .pull-right;
+    	    }
+	    }
+	}
+    
+    .step1 .step-fields {
+    	@include make-row();
+    	
+    	.field-firstname, .field-lastname {
+            @include make-sm-column(6);
+    	}
+    	
+    	.field-email, .field-attending {
+    		@include make-xs-column(12);		
+    	}
+    }
+    
+    .step2 {
+    	.field-guestcount {
+    		@extend .form-inline !optional;
+    	}
+    }
+    
+    
+    /* Form content */
+    .guest {
+        @extend .panel;
+        @include panel-variant(#ccc, #333333, #dadada, #ccc);
+        
+        .guest-label {
+        	@extend .panel-heading;
+        	display: block;
+        	padding-top: 2px;
+        	padding-bottom: 2px;
+        }
+        
+        .guest-fields {
+        	@extend .panel-body;
+        	padding-top: 5px;
+        	padding-bottom: 5px;
+			@include make-row();
+			
+			.field {
+				margin-bottom: 5px;
+			}
+			
+			.field-guest-title {
+				display: none;
+			}
+		
+			.field-guest-first, .field-guest-last {
+				@include make-sm-column(5);
+			}
+		
+			.field-guest-meal {
+				@include make-sm-column(2);
+			}
+		}
+    }
+    
+    .guest1 {
+    	.field-guest-first, .field-guest-last {
+    		.control-label {
+    			display: none;
+    		}
+    	}
+    }
+}
