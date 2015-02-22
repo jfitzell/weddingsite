@@ -18,6 +18,8 @@ You can make a reservation by contacting the hotel using either of the following
 * Email: 029rs@jupiterhotels.co.uk
 
 
+
+
 ##**The Premier Inn Bolton (Stadium/Arena)**
 
 We have not reserved any rooms at [The Premier Inn Bolton (Stadium/Arena)](http://www.premierinn.com/en/hotel/BOLBAR) (because the rate is cheaper online) but it is a large hotel near the wedding reception venue, so this is another option if you would like transport to and from the wedding.
