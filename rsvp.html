@@ -1,0 +1,213 @@
+---
+layout: default
+title: RSVP
+parsely: true
+js: rsvp
+formaction: https://docs.google.com/forms/d/1w-INu_xopywyd8EWIuFBCoR3Oh9H8sfaDZew6wlIIpU/formResponse
+fields: 
+  email:
+  attending: entry.507744476
+  guests:
+    - title: entry.235350510
+      first: entry.723527832
+      last: entry.1478306097
+      meal: entry.1732711891
+    - title:
+      first:
+      last:
+      meal:
+    - title:
+      first:
+      last:
+      meal:
+    - title:
+      first:
+      last:
+      meal:
+    - title:
+      first:
+      last:
+      meal:
+    - title:
+      first:
+      last:
+      meal:
+  shuttle:
+    ceremony:
+    reception:
+    home:
+  comments:
+  songtitle:
+  songspotifyid:
+---
+<form action="{{ page.formaction }}" method="post" id="rsvp-form" target="_self" name="ss-form">
+	<div class="step step1" data-step="step1">
+		<div class="step-fields">
+			<div class="field field-firstname">
+				<label class="control-label" for="">First&nbsp;Name</label>
+				<input class="form-control" type="text" id="user_first_dynamic" name="{{ page.fields.guests[0].first }}" placeholder="First Name" size="10" title="" required/>
+			</div>
+			<div class="field field-lastname">
+				<label class="control-label" for="">Last&nbsp;Name</label>
+				<input class="form-control" id="user_last_dynamic" type="text" name="{{ page.fields.guests[0].last }}" placeholder="Last Name" title="" size="10" required />
+			</div>
+			<div class="field field-email">
+				<label class="control-label" for="">What's the best email address to reach you?</label>
+				<input class="form-control" type="email" name="{{ page.fields.email }}" placeholder="user@example.com" title="" size="10" />
+			</div>	
+			<div class="field field-attending">
+				<label class="control-label">Will you be joining us?</label>
+				<div class="radio">
+					<label><input type="radio" name="{{ page.fields.attending }}" value="yes" required />Yes, can't wait!</label>
+				</div>
+				<div class="radio">
+					<label class="radio"><input type="radio" name="{{ page.fields.attending }}" value="no" required />No, sorry, wish I/we could be there</label>
+				</div>
+			</div>
+		</div>
+		
+		<div class="step-navigation">
+			<button type="button" class="button-nav button-next" data-next-step="step2">Next &gt;</button>
+		</div>
+	</div>
+	
+	<div class="step step2" data-step="step2">
+		<div class="step-fields">
+			<div class="field field-guestcount">
+				<label class="control-label" for="guest_count">How many (including yourself) will be attending?</label>
+				<select class="form-control" name="entry.524253547" id="guest_count" data-attending-required>
+					<option value="" selected disabled></option>
+					{% for i in (1..page.fields.guests.size) %}
+					<option value="{{ i }}">{{ i }}</option>
+					{% endfor %}
+				</select>
+				<span class="help-block">Please include only those who will be dining at the reception</span>
+			</div>
+	
+			<div class="guest-details">
+				{% for guest in page.fields.guests %}
+				<div class="guest guest{{ forloop.index }}">
+					<label class="guest-label">{% if forloop.first %}Yourself{% else %}Guest {{ forloop.index0 }}{% endif %}</label>
+		<!-- 
+					<div class="field guest-title">
+						<label class="control-label" for="">Title</label>
+						<input class="form-control" type="text" name="{{ guest.title }}" placeholder="Mr/Mrs" title="Title" size="4"/>
+					</div>
+		 -->
+					<div class="guest-fields">
+						<div class="field field-guest-first">
+							<label class="control-label" for="">First&nbsp;Name</label>
+							{% if forloop.first %}
+							<div class="form-control-static" id="user_first_static"></div>
+							{% else %}
+							<input class="form-control" type="text" name="{{ guest.first }}" placeholder="First Name" title="First Name" size="10" />
+							{% endif %}
+						</div>
+						<div class="field field-guest-last">
+							<label class="control-label" for="">Last&nbsp;Name</label>
+							{% if forloop.first %}
+							<div class="form-control-static" id="user_last_static"></div>
+							{% else %}
+							<input class="form-control" type="text" name="{{ guest.last }}" placeholder="Last Name" title="Last Name" size="10" />
+							{% endif %}
+						</div>
+						<div class="field field-guest-meal">
+							<label class="control-label" for="">Meal&nbsp;Choice</label>
+							<select class="form-control" name="{{ guest.meal }}" {% if forloop.first %}data-attending-required{% endif%}>
+								<option value="Meat">Meat</option>
+								<option value="Veg">Veg</option>
+								<option value="Child">Child</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+				
+		<div class="step-navigation">
+			<button type="button" class="button-nav button-next" data-next-step="step3">Next &gt;</button>
+			<button type="button" class="button-nav button-prev" data-next-step="step1">&lt; Prev</button>
+		</div>
+	</div>
+
+	<div class="step step3" data-step="step3">
+		<div class="step-fields">
+			<div class="field field-transport-ceremony">
+				<label class="control-label" for="">Would you like coach transport to the ceremony?</label>
+				<select class="form-control" name="{{ page.fields.shuttle.ceremony }}" data-attending-required>
+					<option value="" selected disabled></option>
+					<option value="parr">Yes, from Parr Hall</option>
+					<option value="mercure">Yes, from the Mercure Bolton Georgian House</option>
+					<option value="premier">Yes, from the Premier Inn Bolton West</option>
+					<option value="none">No thanks, we're arranging our own transportation</option>
+				</select>
+			</div>
+			<div class="field field-transport-reception">
+				<label class="control-label" for="">Would you like coach transport between the ceremony and the reception?</label>
+				<select class="form-control" name="{{ page.fields.shuttle.reception }}" data-attending-required>
+					<option value="" selected disabled></option>
+					<option value="yes">Yes please</option>
+					<option value="no">No thanks, we'll make our own way</option>
+				</select>
+			</div>
+			<div class="field field-transport-home">
+				<label class="control-label" for="">Would you like coach transport after the reception?</label>
+				<span class="help-block">Coaches will depart between midnight and 12:15</span>
+				<select class="form-control" name="{{ page.fields.shuttle.home }}" data-attending-required>
+					<option value="" selected disabled></option>
+					<option value="parr">Yes, to Parr Hall</option>
+					<option value="mercure">Yes, to the Mercure Bolton Georgian House</option>
+					<option value="premier">Yes, to the Premier Inn Bolton West</option>
+					<option value="none">No thanks, we're arranging our own transportation</option>
+				</select>
+			</div>
+		</div>
+		
+		<div class="step-navigation">
+			<button type="button" class="button-nav button-next" data-next-step="step4">Next &gt;</button>
+			<button type="button" class="button-nav button-prev" data-next-step="step2">&lt; Prev</button>
+		</div>
+	</div>
+
+	<div class="step step4" data-step="step4">
+		<div class="field field-song">
+			<label class="control-label" for="">What's one song that always gets you up on the dance floor?</label>
+			<input class="form-control" type="text" name="{{ page.fields.songtitle }}" placeholder="e.g. Stayin' Alive, The Bee Gees" title="" autocomplete="off"/>
+			<input type="hidden" name="{{ page.fields.songspotifyid }}" id="song_spotify_id"/>
+		</div>
+		
+		<div class="field field-comments">
+			<label class="control-label" for="">Other Comments</label>
+			<span class="help-block">Have a food allergy? Need a highchair? Is there anything else we should know?</span>
+			<textarea class="form-control" name="{{ page.fields.comments }}" rows="8" cols="0" autocomplete="off"></textarea>
+		</div>
+
+		<div class="step-navigation">
+			<input type="submit" class="button-submit" name="submit" value="RSVP!" id="ss-submit" />
+			<button type="button" class="button-nav button-prev" data-next-step="step3">&lt; Prev</button>
+		</div>
+	</div>
+</form>
+<div class="confirm confirm-accept panel panel-info">
+	<div class="panel-heading">We're looking forward to seeing you</div>
+	<div class="panel-body">
+		<p>Thanks for confirming your details. We're getting excited and we can't wait to see you!</p>
+		<p>If we can do anything to help, just <a href="mailto:wedding@fitzell.ca">let us know</a>.</p>
+	</div>
+</div>
+<div class="confirm confirm-decline panel panel-info">
+	<div class="panel-heading">We'll miss you!</div>
+	<div class="panel-body">
+		<p>Thanks for letting us know. We'll be sorry not to have you celebrating with us.</p>
+		<p>If you want to get in touch, just <a href="mailto:wedding@fitzell.ca">send us an email</a>.</p>
+	</div>
+</div>
+<div class="confirm confirm-error panel panel-danger">
+	<div class="panel-heading">Something's wrong...</div>
+	<div class="panel-body">
+		<p>Sorry, there seems to be a problem submitting your RSVP.</p>
+		<p class="error-details"></p>
+		<p>You could try <a href="{{ page.formaction }}">this Google Form</a> instead or just <a href="mailto:wedding@fitzell.ca">send us an email</a> with all your details.</p>
+	</div>
+</div>
