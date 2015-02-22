@@ -43,7 +43,7 @@ html, body {
 	max-width: $container-sm;
 	
 	/* Setup the fixed footer:
-		http://ryanfait.com/resources/footer-stick-to-bottom-of-page/ */
+		http://stackoverflow.com/questions/14562457/center-oversized-image-in-div/19414020#19414020 */
 	min-height: 100%;
 	position: relative;
 	margin: 0 auto -5em;
@@ -56,6 +56,14 @@ html, body {
 	padding-top: 20px;
 	font-family: 'Italianno', cursive;
 	font-size: 55px;
+
+	@media (max-width: $screen-sm-min) {
+		font-size: 40px;
+	}
+	
+	@media (max-width: $screen-xs-min) {
+		font-size: 28px;
+	}
 }
 
 .navigation {
