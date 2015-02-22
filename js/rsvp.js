@@ -70,12 +70,15 @@ var RSVPForm = function(form) {
 		self.initializeInputs();
 
 		// Show/hide elements appropriately for JS form
-		self.steps().slice(1).hide();
 		inputs.stepNavButtons.show();
 		self.$('.guest1')
 			.find('.field-guest-first, .field-guest-last')
 			.find('.control-label')
 			.show();
+		// Set the initial view appropriately
+		self.hashChanged();
+
+		$(window).on('hashchange', self.hashChanged);
 
 		// Prevent Enter submitting the form accidentally, but still allow
 		//   it to work normally on buttons and in textareas
@@ -299,6 +302,24 @@ var RSVPForm = function(form) {
 		inputs.guestCount.change();
 	};
 
+	this.hashChanged = function() {
+		var hash = location.hash.replace('#','');
+		console.log('Hash changed: ' + hash);
+
+		$('.confirm').hide();
+		self.steps().hide();
+		self.form.hide();
+
+		var confirmation = $('.confirm-' + hash);
+
+		if (confirmation.length)
+			confirmation.show();
+		else {
+			self.form.show()
+			self.steps().first().show();
+		}
+	};
+
 
 	/**********************
 	 * Validation / Submission
@@ -339,13 +360,14 @@ var RSVPForm = function(form) {
 		}
 
 		function doSuccess(data) {
+			location.hash = self.attending() ? 'accept' : 'decline';
 			console.log('success!');
-			$('#success').show();
-			self.form.hide();
 		}
 
 		function doFailure(error) {
-			console.log(error)
+			location.hash = 'error';
+			$('.error-details').text(error.statusText);
+			console.log(error);
 		}
 
 		// We have to send the request via a proxy to make CORS work

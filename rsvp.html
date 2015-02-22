@@ -4,7 +4,8 @@ title: RSVP
 parsely: true
 css: rsvp
 js: rsvp
-fields:
+formaction: https://docs.google.com/forms/d/1w-INu_xopywyd8EWIuFBCoR3Oh9H8sfaDZew6wlIIpU/formResponse
+fields: 
   email:
   attending: entry.507744476
   guests:
@@ -40,7 +41,7 @@ fields:
   songtitle:
   songspotifyid:
 ---
-<form action="https://docs.google.com/forms/d/1w-INu_xopywyd8EWIuFBCoR3Oh9H8sfaDZew6wlIIpU/formResponse" method="post" id="rsvp-form" target="_self" name="ss-form">
+<form action="{{ page.formaction }}" method="post" id="rsvp-form" target="_self" name="ss-form">
 	<div class="step step1" data-step="step1">
 		<div class="step-fields">
 			<div class="field field-firstname">
@@ -189,10 +190,25 @@ fields:
 		</div>
 	</div>
 </form>
-<div id="success" class="default-hidden">
-	<p>Thanks for confirming your details. We're getting excited and we can't wait to see you!</p>
-	<p>If we can do anything to help, just <a href="mailto:wedding@fitzell.ca">let us know</a>.</p>
+<div class="confirm confirm-accept panel panel-info">
+	<div class="panel-heading">We're looking forward to seeing you</div>
+	<div class="panel-body">
+		<p>Thanks for confirming your details. We're getting excited and we can't wait to see you!</p>
+		<p>If we can do anything to help, just <a href="mailto:wedding@fitzell.ca">let us know</a>.</p>
+	</div>
 </div>
-<div id="regrets" class="default-hidden">
-	<p>Thanks for letting us know. We'll be sorry not to have you with us!</p>
+<div class="confirm confirm-decline panel panel-info">
+	<div class="panel-heading">We'll miss you</div>
+	<div class="panel-body">
+		<p>Thanks for letting us know. We'll be sorry not to have you celebrating with us!</p>
+		<p>If you want to get in touch, just <a href="mailto:wedding@fitzell.ca">send us an email</a>.</p>
+	</div>
+</div>
+<div class="confirm confirm-error panel panel-danger">
+	<div class="panel-heading">Something's wrong...</div>
+	<div class="panel-body">
+		<p>Sorry, there seems to be a problem submitting your RSVP.</p>
+		<p class="error-details"></p>
+		<p>You could try <a href="{{ page.formaction }}">this Google Form</a> instead or just <a href="mailto:wedding@fitzell.ca">send us an email</a> with all your details.</p>
+	</div>
 </div>

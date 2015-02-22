@@ -41,6 +41,10 @@
 	}
 }
 
+.error-details {
+	color: $state-danger-text;
+}
+
 .parsley-errors-list {
 	margin: 2px 0 3px;
 	padding: 0;
@@ -60,6 +64,9 @@
 	opacity: 1;
 }
 
+.confirm {
+	display: none;
+}
 
 .wrapper {
 	@include container-fixed;
@@ -69,11 +76,6 @@
 	}
 }
 
-.button-submit {
-	@extend .btn, .btn-success;
-	@extend .pull-right;
-}
-    	    
 #rsvp-form {
 	/* Formatting overrides */
     textarea {
@@ -92,6 +94,11 @@
     .field {
 	    @extend .form-group;
     }
+    
+	.button-submit {
+		@extend .btn, .btn-success;
+		@extend .pull-right;
+	}	    
 
     .step {
 		@include clearfix;
