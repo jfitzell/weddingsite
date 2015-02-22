@@ -83,12 +83,6 @@ fields:
 				{% for guest in page.fields.guests %}
 				<div class="guest guest{{ forloop.index }}">
 					<label class="guest-label">{% if forloop.first %}Yourself{% else %}Guest {{ forloop.index0 }}{% endif %}</label>
-		<!-- 
-					<div class="field guest-title">
-						<label class="control-label" for="">Title</label>
-						<input class="form-control" type="text" name="{{ guest.title }}" placeholder="Mr/Mrs" title="Title" size="4"/>
-					</div>
-		 -->
 					<div class="guest-fields">
 						<div class="field field-guest-first">
 							<label class="control-label" for="">First&nbsp;Name</label>
@@ -110,7 +104,7 @@ fields:
 							<label class="control-label" for="">Meal&nbsp;Choice</label>
 							<select class="form-control" name="{{ guest.meal }}" {% if forloop.first %}data-attending-required{% endif%}>
 								<option value="Meat">Meat</option>
-								<option value="Veg">Veg</option>
+								<option value="Veg">Vegetarian</option>
 								<option value="Child">Child</option>
 							</select>
 						</div>
@@ -127,6 +121,7 @@ fields:
 	</div>
 
 	<div class="step step3" data-step="step3">
+		<p>We are hiring a coach/bus to take guests from our <a href="{{ site.baseurl }}/accommodation.html" target="_blank">selected hotels</a> to the ceremony, from there to the reception, and back to the hotels at the end of the night. If you want to use these coaches, you must let us know <strong>in advance</strong>, so that we can plan for the correct number of people. If you haven't already done so, please take a look at the <a href="{{ site.baseurl }}/accommodation.html" target="_blank">accommodation</a> and <a href="{{ site.baseurl }}/location.html" target="_blank">location</a> pages for details.</p>
 		<div class="step-fields">
 			<div class="field field-transport-ceremony">
 				<label class="control-label" for="">Would you like coach transport to the ceremony?</label>
@@ -203,6 +198,6 @@ fields:
 	<div class="panel-body">
 		<p>Sorry, there seems to be a problem submitting your RSVP.</p>
 		<p class="error-details"></p>
-		<p>You could try <a href="{{ page.formaction }}">this Google Form</a> instead or just <a href="mailto:wedding@fitzell.ca">send us an email</a> with all your details.</p>
+		<p>Please try again later or just <a href="mailto:wedding@fitzell.ca">send us an email</a> with all your details.</p>
 	</div>
 </div>
