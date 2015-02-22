@@ -1,0 +1,41 @@
+/* Form validation - Bootstrap overrides */
+.has-error, .has-success {
+	.control-label, .radio, .help-block {
+	    color: inherit;
+	}
+}
+
+.has-error{
+	input, select, textarea {
+	    background-color: $state-danger-bg;
+	}
+}
+
+.has-success {
+	input, select, textarea {
+		background-color: $state-success-bg;
+	}
+}
+
+.error-details {
+	color: $state-danger-text;
+}
+
+.parsley-errors-list {
+	margin: 2px 0 3px;
+	padding: 0;
+	list-style-type: none;
+	font-size: 90%;
+	opacity: 0;
+	font-style: italic;
+	color: $state-danger-text;
+
+	transition: all .3s ease-in;
+	-o-transition: all .3s ease-in;
+	-moz-transition: all .3s ease-in;
+	-webkit-transition: all .3s ease-in;
+	
+	&.filled {
+		opacity: 1;
+	}
+}

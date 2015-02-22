@@ -1,9 +1,0 @@
----
----
-//@import "bootstrap.scss";
-@import "bootstrap/variables";
-@import "bootstrap/mixins";
-
-.foo {
-  @include make-xs-column(4);
-}

@@ -8,6 +8,8 @@
 
 <!--  <link rel="stylesheet" href="{{ site.baseurl }}/css/bootstrap.min.css"> -->
   <link href='http://fonts.googleapis.com/css?family=Italianno' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="{{ site.baseurl }}/css/main.css" type="text/css" media="screen, projection" />
   
   {% if page.parsely %}
     <script src="{{ site.baseurl }}/js/jquery-1.11.2.min.js"></script>
@@ -15,8 +17,6 @@
     <script src="{{ site.baseurl }}/js/parsley-2.0.7.min.js"></script>
     <link rel="stylesheet" href="{{ site.baseurl }}/css/typeaheadjs.css" type="text/css" />
   {% endif %}
-
-  <link rel="stylesheet" href="{{ site.baseurl }}/css/screen.css" type="text/css" media="screen, projection" />
   
   {% if page.css %}
     <link rel="stylesheet" href="{{ site.baseurl }}/css/{{ page.css }}.css" type="text/css" />
@@ -40,9 +40,7 @@
 </head>
 <body>
   <div class="wrapper">
-    <div class="header">
-      <p>Ruth & Julian — October 3, 2015</p>
-    </div>
+    <div class="header">Ruth & Julian — October 3, 2015</div>
     <div class="navigation">
       <ul>
         <li><a href="{{ site.baseurl }}/">Welcome</a></li>
@@ -52,15 +50,13 @@
 	    <li><a href="{{ site.baseurl }}/save-the-date.html">Save the date</a></li>
       </ul>
     </div>
-  	
   	<div class="content">
 	    {{ content }}
   	</div>
-  	<div class="footer-push"></div>
-  </div>
-  <div class="footer">
-    <hr />
-    <p>Can we help? Let us know: <a href="mailto:wedding@fitzell.ca">wedding@fitzell.ca</a>!</p>
+    <div class="footer">
+	  <hr />
+	  Can we help? Let us know: <a href="mailto:wedding@fitzell.ca">wedding@fitzell.ca</a>!
+    </div>
   </div>
 </body>
 </html>

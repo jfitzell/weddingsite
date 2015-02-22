@@ -123,8 +123,8 @@ var RSVPForm = function(form) {
 		inputs.guest1First = self.$('#user_first_static');
 		inputs.guest1Last = self.$('#user_last_static');
 
-		inputs.song = self.$('.field-song input');
-		inputs.songId = self.$('#song_spotify_id');
+		inputs.song = self.$('.field-song input[type="text"]');
+		inputs.songId = self.$('.field-song input[type="hidden"]');
 	};
 
 	this.updateDynamicFields = function() {

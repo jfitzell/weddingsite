@@ -1,87 +1,5 @@
----
----
-
-// Core variables and mixins
-$text-color: #666666;
-$font-size-base: 15px;
-$link-color: #5199a8;
-$link-hover-color: #8dc7d3;
-@import "bootstrap/variables";
-@import "bootstrap/mixins";
-
-// Reset and dependencies
-@import "bootstrap/normalize";
-//@import "bootstrap/print";
-//@import "bootstrap/glyphicons";
-
-// Core CSS
-@import "bootstrap/scaffolding";
-//@import "bootstrap/type";
-//@import "bootstrap/code";
-@import "bootstrap/grid";
-//@import "bootstrap/tables";
-@import "bootstrap/forms";
-@import "bootstrap/buttons";
-
-@import "bootstrap/panels";
-@import "bootstrap/utilities";
-
-html, body {
-	height: 100%;
-}
-
-/* Form validation - Bootstrap overrides */
-.has-error, .has-success {
-	.control-label, .radio, .help-block {
-	    color: inherit;
-	}
-}
-
-.has-error{
-	input, select, textarea {
-	    background-color: $state-danger-bg;
-	}
-}
-
-.has-success {
-	input, select, textarea {
-		background-color: $state-success-bg;
-	}
-}
-
-.error-details {
-	color: $state-danger-text;
-}
-
-.parsley-errors-list {
-	margin: 2px 0 3px;
-	padding: 0;
-	list-style-type: none;
-	font-size: 90%;
-	opacity: 0;
-	font-style: italic;
-	color: $state-danger-text;
-
-	transition: all .3s ease-in;
-	-o-transition: all .3s ease-in;
-	-moz-transition: all .3s ease-in;
-	-webkit-transition: all .3s ease-in;
-}
-
-.parsley-errors-list.filled {
-	opacity: 1;
-}
-
 .confirm {
 	display: none;
-}
-
-.wrapper {
-	@include container-fixed;
-
-	@media (min-width: $screen-sm-min) {
-		width: $container-sm;
-	}
 }
 
 #rsvp-form {
@@ -100,7 +18,7 @@ html, body {
 
     /* Form structure */
     .field {
-	    @extend .form-group;
+	    @extend .form-group !optional;
     }
     
 	.button-submit {
@@ -141,7 +59,7 @@ html, body {
     
     .step2 {
     	.field-guestcount {
-    		@extend .form-inline;
+    		@extend .form-inline !optional;
     	}
     }
     
