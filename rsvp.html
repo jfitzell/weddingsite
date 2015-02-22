@@ -3,42 +3,37 @@ layout: default
 title: RSVP
 parsely: true
 js: rsvp
-formaction: https://docs.google.com/forms/d/1w-INu_xopywyd8EWIuFBCoR3Oh9H8sfaDZew6wlIIpU/formResponse
+formaction: https://docs.google.com/forms/d/1Y2ACCeZJQLWfNlV1aORpy2lYFKkWtzvjFvxXFGRqRkM/formResponse
 fields: 
-  email:
-  attending: entry.507744476
+  email: entry.235350510
+  attending: entry.2005725611
+  guestcount: entry.1595441488
   guests:
-    - title: entry.235350510
-      first: entry.723527832
+    - first: entry.723527832
       last: entry.1478306097
-      meal: entry.1732711891
-    - title:
-      first:
-      last:
-      meal:
-    - title:
-      first:
-      last:
-      meal:
-    - title:
-      first:
-      last:
-      meal:
-    - title:
-      first:
-      last:
-      meal:
-    - title:
-      first:
-      last:
-      meal:
+      meal: entry.437311073
+    - first: entry.373050597
+      last: entry.998247035	
+      meal: entry.1977857054
+    - first: entry.152085235
+      last: entry.630288024
+      meal: entry.1595114297
+    - first: entry.1480961878
+      last: entry.182688862
+      meal: entry.455404825
+    - first: entry.42153171
+      last: entry.759963534
+      meal: entry.1594634730
+    - first: entry.1135971953
+      last: entry.1529795827
+      meal: entry.649822415
   shuttle:
-    ceremony:
-    reception:
-    home:
-  comments:
-  songtitle:
-  songspotifyid:
+    ceremony: entry.1148241724
+    reception: entry.1029846687
+    home: entry.997272354
+  songtitle: entry.1055316112
+  songspotifyid: entry.330989541
+  comments: entry.883892337
 ---
 <form action="{{ page.formaction }}" method="post" id="rsvp-form" target="_self" name="ss-form">
 	<div class="step step1" data-step="step1">
@@ -75,7 +70,7 @@ fields:
 		<div class="step-fields">
 			<div class="field field-guestcount">
 				<label class="control-label" for="guest_count">How many (including yourself) will be attending?</label>
-				<select class="form-control" name="entry.524253547" id="guest_count" data-attending-required>
+				<select class="form-control" name="{{ page.fields.guestcount }}" id="guest_count" data-attending-required>
 					<option value="" selected disabled></option>
 					{% for i in (1..page.fields.guests.size) %}
 					<option value="{{ i }}">{{ i }}</option>
