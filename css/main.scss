@@ -135,7 +135,8 @@ html, body {
 	height: $footer-height;
 	width: 100%;
 	position: absolute;
-	bottom: 0;
+	bottom: 0px;
+	left: 0px;
 	text-align: center;
 
 	hr {
