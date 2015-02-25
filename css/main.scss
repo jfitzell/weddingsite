@@ -33,6 +33,16 @@ $footer-padding: 50px;
 /*
 /*****************************************************************************/
 
+@viewport {
+	zoom: 1.0;
+	width: extend-to-zoom;
+}
+
+@-ms-viewport {
+	zoom: 1.0;
+	width: extend-to-zoom;
+}
+
 html, body {
 	height: 100%;
 }
