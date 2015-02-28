@@ -3,42 +3,37 @@ layout: default
 title: RSVP
 parsely: true
 js: rsvp
-formaction: https://docs.google.com/forms/d/1w-INu_xopywyd8EWIuFBCoR3Oh9H8sfaDZew6wlIIpU/formResponse
+formaction: https://docs.google.com/forms/d/1Y2ACCeZJQLWfNlV1aORpy2lYFKkWtzvjFvxXFGRqRkM/formResponse
 fields: 
-  email:
-  attending: entry.507744476
+  email: entry.235350510
+  attending: entry.2005725611
+  guestcount: entry.1595441488
   guests:
-    - title: entry.235350510
-      first: entry.723527832
+    - first: entry.723527832
       last: entry.1478306097
-      meal: entry.1732711891
-    - title:
-      first:
-      last:
-      meal:
-    - title:
-      first:
-      last:
-      meal:
-    - title:
-      first:
-      last:
-      meal:
-    - title:
-      first:
-      last:
-      meal:
-    - title:
-      first:
-      last:
-      meal:
+      meal: entry.437311073
+    - first: entry.373050597
+      last: entry.998247035	
+      meal: entry.1977857054
+    - first: entry.152085235
+      last: entry.630288024
+      meal: entry.1595114297
+    - first: entry.1480961878
+      last: entry.182688862
+      meal: entry.455404825
+    - first: entry.42153171
+      last: entry.759963534
+      meal: entry.1594634730
+    - first: entry.1135971953
+      last: entry.1529795827
+      meal: entry.649822415
   shuttle:
-    ceremony:
-    reception:
-    home:
-  comments:
-  songtitle:
-  songspotifyid:
+    ceremony: entry.1148241724
+    reception: entry.1029846687
+    home: entry.997272354
+  songtitle: entry.1055316112
+  songspotifyid: entry.330989541
+  comments: entry.883892337
 ---
 <form action="{{ page.formaction }}" method="post" id="rsvp-form" target="_self" name="ss-form">
 	<div class="step step1" data-step="step1">
@@ -75,7 +70,7 @@ fields:
 		<div class="step-fields">
 			<div class="field field-guestcount">
 				<label class="control-label" for="guest_count">How many (including yourself) will be attending?</label>
-				<select class="form-control" name="entry.524253547" id="guest_count" data-attending-required>
+				<select class="form-control" name="{{ page.fields.guestcount }}" id="guest_count" data-attending-required>
 					<option value="" selected disabled></option>
 					{% for i in (1..page.fields.guests.size) %}
 					<option value="{{ i }}">{{ i }}</option>
@@ -88,12 +83,6 @@ fields:
 				{% for guest in page.fields.guests %}
 				<div class="guest guest{{ forloop.index }}">
 					<label class="guest-label">{% if forloop.first %}Yourself{% else %}Guest {{ forloop.index0 }}{% endif %}</label>
-		<!-- 
-					<div class="field guest-title">
-						<label class="control-label" for="">Title</label>
-						<input class="form-control" type="text" name="{{ guest.title }}" placeholder="Mr/Mrs" title="Title" size="4"/>
-					</div>
-		 -->
 					<div class="guest-fields">
 						<div class="field field-guest-first">
 							<label class="control-label" for="">First&nbsp;Name</label>
@@ -115,7 +104,7 @@ fields:
 							<label class="control-label" for="">Meal&nbsp;Choice</label>
 							<select class="form-control" name="{{ guest.meal }}" {% if forloop.first %}data-attending-required{% endif%}>
 								<option value="Meat">Meat</option>
-								<option value="Veg">Veg</option>
+								<option value="Veg">Vegetarian</option>
 								<option value="Child">Child</option>
 							</select>
 						</div>
@@ -132,6 +121,7 @@ fields:
 	</div>
 
 	<div class="step step3" data-step="step3">
+		<p>We are hiring a coach/bus to take guests from our <a href="{{ site.baseurl }}/accommodation.html" target="_blank">selected hotels</a> to the ceremony, from there to the reception, and back to the hotels at the end of the night. If you want to use these coaches, you must let us know <strong>in advance</strong>, so that we can plan for the correct number of people. If you haven't already done so, please take a look at the <a href="{{ site.baseurl }}/accommodation.html" target="_blank">accommodation</a> and <a href="{{ site.baseurl }}/location.html" target="_blank">location</a> pages for details.</p>
 		<div class="step-fields">
 			<div class="field field-transport-ceremony">
 				<label class="control-label" for="">Would you like coach transport to the ceremony?</label>
@@ -208,6 +198,6 @@ fields:
 	<div class="panel-body">
 		<p>Sorry, there seems to be a problem submitting your RSVP.</p>
 		<p class="error-details"></p>
-		<p>You could try <a href="{{ page.formaction }}">this Google Form</a> instead or just <a href="mailto:wedding@fitzell.ca">send us an email</a> with all your details.</p>
+		<p>Please try again later or just <a href="mailto:wedding@fitzell.ca">send us an email</a> with all your details.</p>
 	</div>
 </div>

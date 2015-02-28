@@ -354,24 +354,36 @@ var RSVPForm = function(form) {
 	this.submitAjax = function(event) {
 		if (event) event.preventDefault();
 
+		var button = $(event.target);
+		var buttonHtml = button.html();
+		function resetButton() {
+			button.html(buttonHtml).prop('disabled', false);
+		}
+		
+		button.prop('disabled', true)		;
+
 		if (! self.parsley.validate()) {
 			self.showAllSteps();
+			resetButton();
 			return false;
 		}
 
 		function doSuccess(data) {
 			location.hash = self.attending() ? 'accept' : 'decline';
 			console.log('success!');
+			resetButton();
 		}
 
 		function doFailure(error) {
 			location.hash = 'error';
 			$('.error-details').text(error.statusText);
 			console.log(error);
+			resetButton();
 		}
 
 		// We have to send the request via a proxy to make CORS work
 		var action = self.form.prop('action').replace(/https?:\/\/docs.google.com/, 'http://fitzell.ca');
+		button.html('Submitting...');
 		$.post(action, form.serialize())
 			.done(doSuccess)
 			.fail(function(e) { doFailure(e) });
