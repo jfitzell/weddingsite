@@ -17,7 +17,9 @@ You can make a reservation by contacting the hotel using either of the following
 * Telephone: +44 (0)844 815 9029 *(From Canada, dial 011 44 844 815 0929)*
 * Email: 029rs@jupiterhotels.co.uk
 
-If travelling by car, hotel is 1.5 miles along the A6 off juntion 6 on the M61. See <a target="_blank" href="http://www.mercurebolton.co.uk/contact.html">here</a> for more details.
+If travelling by car, the hotel is 1.5 miles along the A6 off juntion 6 on the M61. See <a target="_blank" href="http://www.mercurebolton.co.uk/contact.html">here</a> for more details.
+
+If travelling by train, it's a 1.5 mile taxi journey from Horwich Parkway train station.
 
 
 ##The Premier Inn Bolton (Stadium/Arena)
