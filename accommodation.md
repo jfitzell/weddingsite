@@ -3,10 +3,12 @@ title: Accommodation
 layout: default
 ---
 
-# Recommended Hotels
-
-**We will be arranging coaches to and from the wedding from the Premier Inn Bolton (Stadium/Arena) and the Mercure Bolton Georgian House Hotel.**
-
+<div class="panel panel-info">
+  <div class="panel-body">
+    <p>We will be arranging coaches to and from the wedding from the Premier Inn Bolton (Stadium/Arena) and the Mercure Bolton Georgian House Hotel.</p>
+    <p>Both hotels are close to the <a href="location.html">reception at Rivington</a>, but if travelling by train, we'd recommend staying at The Premier Inn, which is next to Horwich Parkway train station. It's a 20-30 minute journey from Preston or Manchester Piccadilly train station.</p>
+  </div>
+</div>
 
 ##The Mercure Bolton Georgian House Hotel
 
@@ -24,7 +26,6 @@ We have not reserved any rooms at <a target="_blank" href="http://www.premierinn
 
 Website: <a target="_blank" href="http://www.premierinn.com/en/hotel/BOLBAR/">http://www.premierinn.com/en/hotel/BOLBAR</a>
 
-Both hotels are close to Rivington, but if travelling by train, we'd recommend you stay at The Premier Inn, which  is next to Horwich Parkway train station. It's a 20-30 minute journey from Preston or Manchester Piccadilly train station.
 
 
 
