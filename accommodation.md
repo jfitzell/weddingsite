@@ -17,22 +17,14 @@ You can make a reservation by contacting the hotel using either of the following
 * Telephone: +44 (0)844 815 9029 *(From Canada, dial 011 44 844 815 0929)*
 * Email: 029rs@jupiterhotels.co.uk
 
-If travelling by car, the hotel is 1.5 miles along the A6 off juntion 6 on the M61. See <a target="_blank" href="http://www.mercurebolton.co.uk/contact.html">here</a> for more details.
-
-If travelling by train, it's a 1.5 mile taxi journey from Horwich Parkway train station.
-
 
 ##The Premier Inn Bolton (Stadium/Arena)
 
 We have not reserved any rooms at <a target="_blank" href="http://www.premierinn.com/en/hotel/BOLBAR/">The Premier Inn Bolton (Stadium/Arena)</a> (because the rate is cheaper online) but it is a large hotel near the wedding reception venue, so this is another option if you would like coach transport to and from the wedding.
 
-If travelling by car, the Premier Inn is just off junction 6 on the M61. See <a target="_blank" href="http://www.premierinn.com/en/hotel/BOLBAR/bolton-stadium/arena">here</a> for more details.
-
-If travelling by train, this hotel is probably your best option! It's next to Horwich Parkway train station, which is a 20-30 minute journey from Preston or Manchester Piccadilly train station.
-
 Website: <a target="_blank" href="http://www.premierinn.com/en/hotel/BOLBAR/">http://www.premierinn.com/en/hotel/BOLBAR</a>
 
-
+Both hotels are close to Rivington, but if travelling by train, we'd recommend you stay at The Premier Inn, which  is next to Horwich Parkway train station. It's a 20-30 minute journey from Preston or Manchester Piccadilly train station.
 
 
 
