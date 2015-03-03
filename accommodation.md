@@ -17,7 +17,7 @@ We have reserved a fixed number of double rooms at <a target="_blank" href="http
 You can make a reservation by contacting the hotel using either of the following contact methods, and quoting the reference number **FITZ02102015**:
 
 * Telephone: +44 (0)844 815 9029 *(From Canada, dial 011 44 844 815 0929)*
-* Email: 029rs@jupiterhotels.co.uk
+* Email: [029rs@jupiterhotels.co.uk](mailto:029rs@jupiterhotels.co.uk)
 
 
 ##The Premier Inn Bolton (Stadium/Arena)
