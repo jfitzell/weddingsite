@@ -14,9 +14,9 @@ layout: default
 
 We have reserved a fixed number of double rooms at <a target="_blank" href="http://www.mercurebolton.co.uk/">The Mercure Bolton Georgian House Hotel</a> on the 2nd and 3rd October. The rate for double occupancy is £75 per night, and £65 per night for sole occupancy, including breakfast. 
 
-You can make a reservation by contacting the hotel using either of the following contact methods, and quoting the reference number **FITZ02102015**:
+You can make a reservation by contacting the hotel using either of the following contact methods, and quoting the reference number **FITZ021015**:
 
-* Telephone: +44 (0)844 815 9029 *(From Canada, dial 011 44 844 815 0929)*
+* Telephone: +44 (0)844 815 9029 - Option 1 *(From Canada, dial 011 44 844 815 9029)*
 * Email: [029rs@jupiterhotels.co.uk](mailto:029rs@jupiterhotels.co.uk)
 
 
