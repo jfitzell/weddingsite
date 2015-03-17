@@ -8,7 +8,7 @@ Our wedding will be in Lancashire, England, very close to the village where Ruth
 <iframe style="float:right" width="400" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.co.uk/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Mawdesley+Village+Hall,+Hurst+Green,+Mawdesley&amp;aq=0&amp;oq=mawdes&amp;sll=53.627054,-2.556196&amp;sspn=0.003913,0.008733&amp;ie=UTF8&amp;hq=Mawdesley+Village+Hall,&amp;hnear=Hurst+Green,+Mawdesley,+United+Kingdom&amp;t=m&amp;ll=53.6302799,-2.769086&amp;spn=0.006295,0.006295&amp;output=embed"></iframe>
 
 # Ceremony
-Our ceremony will be in the early afternoon at Mawdesley Village Hall:
+Our ceremony will be at 12:30 at Mawdesley Village Hall:
 
 Hurst Green  
 Mawdesley  
