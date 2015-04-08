@@ -27,6 +27,11 @@
 $footer-height: 3 * $font-size-base;
 $footer-padding: 50px;
 
+$navigation-text-colour: #8e8e8e;
+$navigation-stroke-colour: #d0d0d0;
+$navigation-hovor-text-colour: #f6f6f6;
+$navitation-hovor-bg-colour: #484848;
+
 /*****************************************************************************/
 /*
 /* Site
@@ -79,7 +84,7 @@ html, body {
 .navigation {
 	text-align: center;
 	text-transform: uppercase;
-	color: #8e8e8e;
+	color: $navigation-text-colour;
 	overflow: hidden;
 	font-size: 13px;
 	
@@ -87,7 +92,7 @@ html, body {
 		padding: 0px;
 
 		&:before, &:after {
-			background-color: #d0d0d0;
+			background-color: $navigation-stroke-colour;
 			content: "";
 			display: inline-block;
 			height: 1px;
@@ -114,8 +119,8 @@ html, body {
 
 		&:hover, &.active {
 			/*	text-decoration: underline;*/
-			background-color: #f6f6f6;
-			color: #484848;		
+			background-color: $navigation-hovor-text-colour;
+			color: $navitation-hovor-bg-colour;		
 		}
 	}
 
