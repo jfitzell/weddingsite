@@ -29,6 +29,10 @@
     .step {
 		@include clearfix;
 		
+		.step-intro + .step-fields {
+			margin-top: 15px;
+		}
+		
 	    .step-navigation {	    	
     	    .button-nav {
     	    	@extend .btn, .btn-info;

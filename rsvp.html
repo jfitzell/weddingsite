@@ -47,7 +47,7 @@ fields:
 				<input class="form-control" id="user_last_dynamic" type="text" name="{{ page.fields.guests[0].last }}" placeholder="Last Name" title="" size="10" required />
 			</div>
 			<div class="field field-email">
-				<label class="control-label" for="">What's the best email address to reach you?</label>
+				<label class="control-label" for="">Email</label>
 				<input class="form-control" type="email" name="{{ page.fields.email }}" placeholder="user@example.com" title="" size="10" />
 			</div>	
 			<div class="field field-attending">
@@ -121,10 +121,11 @@ fields:
 	</div>
 
 	<div class="step step3" data-step="step3">
-		<p>We are hiring a coach/bus to take guests from our <a href="{{ site.baseurl }}/accommodation.html" target="_blank">selected hotels</a> to the ceremony, from there to the reception, and back to the hotels at the end of the night. If you want to use these coaches, you must let us know <strong>in advance</strong>, so that we can plan for the correct number of people. If you haven't already done so, please take a look at the <a href="{{ site.baseurl }}/accommodation.html" target="_blank">accommodation</a> and <a href="{{ site.baseurl }}/location.html" target="_blank">location</a> pages for details.</p>
+		<div class="step-intro">We are hiring a coach/bus to take guests from our <a href="{{ site.baseurl }}/accommodation.html" target="_blank">selected hotels</a> to the ceremony, from there to the reception, and back to the hotels at the end of the night. If you want to use these coaches, you must let us know <strong>in advance</strong>, so that we can plan for the correct number of people. If you haven't already done so, please take a look at the <a href="{{ site.baseurl }}/accommodation.html" target="_blank">accommodation</a> and <a href="{{ site.baseurl }}/location.html" target="_blank">location</a> pages for details.</div>
 		<div class="step-fields">
 			<div class="field field-transport-ceremony">
 				<label class="control-label" for="">Would you like coach transport to the ceremony?</label>
+				<span class="help-block">We'll update the website with exact departure times closer to the day</span>
 				<select class="form-control" name="{{ page.fields.shuttle.ceremony }}" data-attending-required>
 					<option value="" selected disabled></option>
 					<option value="parr">Yes, from Parr Hall</option>
@@ -162,7 +163,7 @@ fields:
 
 	<div class="step step4" data-step="step4">
 		<div class="field field-song">
-			<label class="control-label" for="">What's one song that always gets you up on the dance floor?</label>
+			<label class="control-label" for="">What's one song that will definitely get you up on the dance floor?</label>
 			<input class="form-control" type="text" name="{{ page.fields.songtitle }}" placeholder="e.g. Stayin' Alive, The Bee Gees" title="" autocomplete="off"/>
 			<input type="hidden" name="{{ page.fields.songspotifyid }}" id="song_spotify_id"/>
 		</div>
