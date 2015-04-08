@@ -31,6 +31,7 @@ $navigation-text-colour: #8e8e8e;
 $navigation-stroke-colour: #d0d0d0;
 $navigation-hovor-text-colour: #f6f6f6;
 $navitation-hovor-bg-colour: #484848;
+$navigation-space-after: 25px;
 
 /*****************************************************************************/
 /*
@@ -87,30 +88,12 @@ html, body {
 	color: $navigation-text-colour;
 	overflow: hidden;
 	font-size: 13px;
+	margin-bottom: $navigation-space-after;
 	
 	ul {
 		padding: 0px;
-
-		&:before, &:after {
-			background-color: $navigation-stroke-colour;
-			content: "";
-			display: inline-block;
-			height: 1px;
-			bottom: .1em;
-			position: relative;
-			vertical-align: middle;
-			width: 50%;
-		}
-		
-		&:before {
-			right: 29px;
-			margin-left: -50%;
-		}
-		
-		&:after {
-			left: 29px;
-			margin-right: -50%;		
-		}
+		border-top: 1px solid $navigation-stroke-colour;
+		border-bottom: 1px solid $navigation-stroke-colour;
 	}
 
 	li {
