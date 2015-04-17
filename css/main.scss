@@ -169,3 +169,24 @@ html, body {
 		background-image: url(../images/welcome@2x.jpg);
     }
 }
+
+
+
+/* Location.md styles */
+.venue {
+	@include make-row();
+	
+	.venue-text {
+		@include make-sm-column(6);
+		margin-bottom: 10px;
+	}
+	
+	.venue-map {
+		@include make-sm-column(6);
+		
+		iframe {
+			width: 100%;
+			height: 300px;
+		}
+	}
+}
