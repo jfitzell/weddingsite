@@ -5,7 +5,7 @@ layout: default
 
 <div class="panel panel-info">
   <div class="panel-body">
-    <p>We will be arranging coaches to and from the wedding from the Premier Inn Bolton (Stadium/Arena) and the Mercure Bolton Georgian House Hotel. The wedding ceremony will be at 12.30 so we expect the coaches will leave the hotels around 11.15am.</p>   
+    <p>We will be arranging <a href="transport.html">coach transport to and from the wedding</a> from the Premier Inn Bolton (Stadium/Arena) and the Mercure Bolton Georgian House Hotel. The wedding ceremony will be at 12.30 so we expect the coach will leave the hotels around 11.15am.</p>   
     <p>Both hotels are close to the <a href="location.html">reception at Rivington</a>, but if travelling by train, we'd recommend staying at The Premier Inn, which is next to Horwich Parkway train station. It's a 20-30 minute journey from Preston or Manchester Piccadilly train station.</p>
   </div>
 </div>
