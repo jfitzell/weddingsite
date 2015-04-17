@@ -232,7 +232,16 @@ var RSVPForm = function(form) {
 		steps.hide();
 		self.parsley.reset();
 		next.show();
-		next.find(':input').first().focus();
+
+		// If going forward, scroll to the top
+		if (steps.index(next) > steps.index(current)) {
+			next.find(':input').first().focus();
+			if (next.offset().top < $(window).scrollTop()) {
+				$('html, body').animate({
+					scrollTop: next.offset().top
+				}, 600);
+			}
+		}
 	};
 
 	this.guestCountChanged = function() {
@@ -359,7 +368,7 @@ var RSVPForm = function(form) {
 		function resetButton() {
 			button.html(buttonHtml).prop('disabled', false);
 		}
-		
+
 		button.prop('disabled', true)		;
 
 		if (! self.parsley.validate()) {
