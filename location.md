@@ -31,6 +31,6 @@ Bolton
 Lancashire BL6 7SB  
 England
 
-<a href="http://maps.google.com/maps?ll=53.627054,-2.556164&z=15&q=Rivington+Hall+Barn,+Rivington,+England">View on Google Maps</a>
+Sat Nav and computer directions to Rivington Hall Barn can be unreliable. If you are driving, the driveway is opposite the Great House Barn on Rivington Lane (BL6 7SB). <a href="http://maps.google.com/maps?ll=53.627054,-2.556164&z=15&q=Rivington+Hall+Barn,+Rivington,+England">View on Google Maps</a>
 
 <div style="clear:both">&nbsp;</div>
