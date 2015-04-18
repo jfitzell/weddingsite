@@ -1,1 +1,5 @@
 baseurl: 
+
+# To use this locally, "sudo gem install jekyll-redirect-from"
+gems:
+  - jekyll-redirect-from

@@ -1,6 +1,7 @@
 ---
-title: Accommodation
+title: Hotels
 layout: default
+redirect_from: "/accommodation.html"
 ---
 
 <div class="panel panel-info">
