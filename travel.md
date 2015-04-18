@@ -9,7 +9,7 @@ The closest airports are Liverpool John Lennon airport and Manchester Internatio
 
 # By Train
 
-Bolton, Chorley, and Horwich Parkway are the nearest stations to the reception venue and <a href="{{ site.baseurl }}/accommodation.html">suggested hotels</a>. All three can be reached by frequent local trains from Manchester Piccadilly or Preston.
+Bolton, Chorley, and Horwich Parkway are the nearest stations to the reception venue and <a href="{{ site.baseurl }}/hotels.html">suggested hotels</a>. All three can be reached by frequent local trains from Manchester Piccadilly or Preston.
 
 Fast trains run every hour or so from London Euston station to Manchester Piccadilly and Preston, taking between 2 to 2.5 hours. From Manchester and Preston, you'll be able to take a local train, hire a car, or take a taxi. 
 
