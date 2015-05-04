@@ -12,11 +12,9 @@ The coach will pick up from and drop off at the Premier Inn Bolton (Stadium/Aren
 If you are driving, we have provided [directions to the ceremony and reception venues](location.html). Please note that you *cannot* park overnight at the cermony venue but can do so at the reception; the parking lot is locked overnight and you can collect your vehicle after 9am the following morning.
 
 # Taxis
-Rivington Hall Barn recommends the following local taxi companies:
+Rivington is a rural area, so please book your taxis in advance. Rivington Hall Barn recommends the following local taxi companies:
 
  * Triple Zero: +44 1204 365000
  * Yellow Cabs: +44 1257 266566
  * Horwich Private Hire: +44 1204 690096
  * Four Sixes: +44 1257 276666
-
-Rivington is a rural area, so please book your taxis in advance.
