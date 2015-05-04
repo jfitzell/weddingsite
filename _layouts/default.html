@@ -1,3 +1,23 @@
+---
+navigation:
+ - label: Welcome
+   path: /
+ - label: Location
+   path: /location.html
+ - label: Travel
+   path: /travel.html
+ - label: Hotels
+   path: /hotels.html
+ - label: Transport
+   path: /transport.html
+ - label: Gifts
+   path: /gifts.html
+ - label: Save the date
+   path: /save-the-date.html
+ - label: RSVP
+   path: /rsvp.html
+   class: navigation-rsvp
+---
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 <head>
@@ -46,22 +66,21 @@
     <div class="header">Ruth &amp; Julian — October 3, 2015</div>
     <div class="navigation">
       <ul>
-        <li><a href="{{ site.baseurl }}/">Welcome</a></li>
-	    <li><a href="{{ site.baseurl }}/location.html">Location</a></li>
-		<li><a href="{{ site.baseurl }}/travel.html">Travel</a></li>
-	    <li><a href="{{ site.baseurl }}/hotels.html">Hotels</a></li>
-	    <li><a href="{{ site.baseurl }}/transport.html">Transport</a></li>
-	    <li><a href="{{ site.baseurl }}/gifts.html">Gifts</a></li>
-	    <li><a href="{{ site.baseurl }}/save-the-date.html">Save the date</a></li>
-	    <li class="navigation-rsvp"><a href="{{ site.baseurl }}/rsvp.html"><span class="glyphicon glyphicon-envelope"></span> RSVP</a></li>
+        {% assign path = page.url|remove:'index.html' %}
+        {% for item in page.navigation %}
+          {% capture classes %}{% if path == item.path %}active {% endif %}{{ item.class }}{% endcapture %}
+          <li{% if classes %} class="{{ classes }}"{% endif %}>
+            <a href="{{ site.baseurl }}{{ item.path }}">{{ item.label }}</a>
+          </li>
+        {% endfor %}
       </ul>
     </div>
-  	<div class="content">
-	    {{ content }}
-  	</div>
+    <div class="content">
+      {{ content }}
+    </div>
     <div class="footer">
-	  <hr />
-	  Can we help? Let us know: <a href="mailto:wedding@fitzell.ca">wedding@fitzell.ca</a>!
+    <hr />
+    Can we help? Let us know: <a href="mailto:wedding@fitzell.ca">wedding@fitzell.ca</a>!
     </div>
   </div>
 </body>

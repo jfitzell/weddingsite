@@ -2,9 +2,18 @@
 	display: none;
 }
 
-.navigation-rsvp {
+.navigation ul li.navigation-rsvp {
 	background-color: #8f8f8f;
 	color: #ffffff;
+	
+	a:before {
+		@extend .glyphicon, .glyphicon-envelope;
+		padding-right: 0.4em;
+	}
+	
+	&.active a:after {
+		border-top-color: #dddddd;
+	}
 }
 
 #rsvp-form {

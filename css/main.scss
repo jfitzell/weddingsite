@@ -27,11 +27,14 @@
 $footer-height: 3 * $font-size-base;
 $footer-padding: 50px;
 
-$navigation-text-colour: #8e8e8e;
+$navigation-text-colour: #666;
 $navigation-stroke-colour: #d0d0d0;
 $navigation-hovor-text-colour: #f6f6f6;
-$navitation-hovor-bg-colour: #484848;
+$navigation-hovor-bg-colour: #484848;
 $navigation-space-after: 25px;
+$navigation-font-size: 13px;
+$navigation-padding: 10px;
+$navigation-triangle-size: $navigation-padding;
 
 /*****************************************************************************/
 /*
@@ -87,31 +90,61 @@ html, body {
 	text-transform: uppercase;
 	color: $navigation-text-colour;
 	overflow: hidden;
-	font-size: 13px;
+	font-size: $navigation-font-size;
 	margin-bottom: $navigation-space-after;
 	
 	ul {
 		padding: 0px;
 		border-top: 1px solid $navigation-stroke-colour;
 		border-bottom: 1px solid $navigation-stroke-colour;
-	}
 
-	li {
-		display: inline-block;
-		padding: 10px 0;
-
-		&:hover, &.active {
-			/*	text-decoration: underline;*/
-			background-color: $navigation-hovor-text-colour;
-			color: $navitation-hovor-bg-colour;		
-		}
-	}
-
-	a {
-		padding: 10px;
+		li {
+			display: inline-block;
+			padding: $navigation-padding 0;
+			
+			a {
+				padding: $navigation-padding;
 		
-		&:link, &:visited {
-			color: inherit;		
+				&:link, &:visited {
+					color: inherit;
+				}
+			}
+
+			&.active {
+				position: relative;
+				
+				a:hover {
+					text-decoration: none;
+				}
+				
+				/* Draw the triangle */
+				a:after {
+					content: " ";
+					position: absolute;
+					bottom: 0;
+					left: 50%;
+					margin-left: -$navigation-triangle-size;
+										
+					pointer-events: none;
+										
+					height: 0;
+					width: 0;
+					border-left: $navigation-triangle-size solid transparent;
+					border-right: $navigation-triangle-size solid transparent;
+					border-bottom: none;
+					border-top: $navigation-triangle-size solid #c6c6c6;
+				}
+			}
+			
+			&:hover, &.active {
+				/*	text-decoration: underline;*/
+				background-color: $navigation-hovor-bg-colour;
+				color: $navigation-hovor-text-colour;
+				
+				a:after {
+					border-top-color: $navigation-hovor-text-colour;
+				}
+			}
 		}
 	}
 }
