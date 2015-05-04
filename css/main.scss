@@ -111,28 +111,8 @@ html, body {
 			}
 
 			&.active {
-				position: relative;
-				
 				a:hover {
 					text-decoration: none;
-				}
-				
-				/* Draw the triangle */
-				a:after {
-					content: " ";
-					position: absolute;
-					bottom: 0;
-					left: 50%;
-					margin-left: -$navigation-triangle-size;
-										
-					pointer-events: none;
-										
-					height: 0;
-					width: 0;
-					border-left: $navigation-triangle-size solid transparent;
-					border-right: $navigation-triangle-size solid transparent;
-					border-bottom: none;
-					border-top: $navigation-triangle-size solid #c6c6c6;
 				}
 			}
 			
@@ -140,10 +120,6 @@ html, body {
 				/*	text-decoration: underline;*/
 				background-color: $navigation-hovor-bg-colour;
 				color: $navigation-hovor-text-colour;
-				
-				a:after {
-					border-top-color: $navigation-hovor-text-colour;
-				}
 			}
 		}
 	}

@@ -10,10 +10,6 @@
 		@extend .glyphicon, .glyphicon-envelope;
 		padding-right: 0.4em;
 	}
-	
-	&.active a:after {
-		border-top-color: #dddddd;
-	}
 }
 
 #rsvp-form {
