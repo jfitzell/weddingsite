@@ -362,6 +362,8 @@ var RSVPForm = function(form) {
 
 	this.submitAjax = function(event) {
 		if (event) event.preventDefault();
+		
+		if (ga) ga('send', 'event', 'rsvp', 'submit', 'ajax');
 
 		var button = $(event.target);
 		var buttonHtml = button.html();
@@ -378,12 +380,14 @@ var RSVPForm = function(form) {
 		}
 
 		function doSuccess(data) {
+			if (ga) ga('send', 'event', 'rsvp', 'success', 'ajax');
 			location.hash = self.attending() ? 'accept' : 'decline';
 			console.log('success!');
 			resetButton();
 		}
 
 		function doFailure(error) {
+			if (ga) ga('send', 'event', 'rsvp', 'failure', 'ajax');
 			location.hash = 'error';
 			$('.error-details').text(error.statusText);
 			console.log(error);
