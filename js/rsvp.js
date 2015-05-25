@@ -391,7 +391,7 @@ var RSVPForm = function(form) {
 		}
 
 		// We have to send the request via a proxy to make CORS work
-		var action = self.form.prop('action').replace(/https?:\/\/docs.google.com/, 'http://proxy.wedding.fitzell.ca');
+		var action = 'http://proxy.wedding.fitzell.ca/' + self.form.prop('action');
 		button.html('Submitting...');
 		$.post(action, form.serialize())
 			.done(doSuccess)
