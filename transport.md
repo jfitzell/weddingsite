@@ -4,7 +4,7 @@ layout: default
 ---
 
 # Coaches
-We want you to enjoy your night, so we are arranging a private coach from the [hotels](hotels.html) to the [ceremony](location.html), from the ceremony to the [reception](location.html), and finally back to the hotels at the end of the night. You **must** let us know when you [RSVP](rsvp.html) which, if any, of these coaches you would like to use. 
+We want you to enjoy your night, so we are arranging a private coach from the [hotels](hotels.html) to the [ceremony](location.html), from the ceremony to the [reception](location.html), and finally back to the hotels at the end of the night. Hopefully you let us know when you RSVP'd which, if any, of these coaches you would like to use; if not, let us know as soon as possible and we'll do our best to fit you in.  
 
 The coach will pick up from and drop off at the Premier Inn Bolton (Stadium/Arena), the Mercure Bolton Georgian House Hotel, and Parr Hall Farm. The wedding ceremony will be at 12:30 so we expect hotel pickups around 11:15am; departure after the reception will be shortly after midnight. Please check back here closer to the day to confirm detailed times.
 
